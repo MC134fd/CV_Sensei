@@ -15,7 +15,8 @@ Rails.application.routes.draw do
   # post "cvs", to: "cvs#create"
 
   resources :cvs, only: [:new, :create, :show] do
-    resources :chats, only: [:create, :show]
+    resources :chats, only: [:create, :show] do
+      resources :messages, only: [:create]
+    end
   end
-
 end

@@ -1,32 +1,35 @@
 class ChatsController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_cv, only: :create
+  before_action :set_chat, only: :show
+
   def create
-    @chat = Chat.new(chat_params)
-    @chat.cv = Cv.find(params[:cv_id])
+    @chat = @cv.chats.new(chat_params)
+    @chat.user = current_user
+
     if @chat.save
-      # redirect_to cv_chat_path(@chat.cv, @chat), status: :see_other
-      @chats = @chat.cv.chats
-      render 'cvs/show', status
+      redirect_to @chat
     else
-      # # render :new
-      # render 'cvs/show', status: :unprocessable_entity
-
-      # # Ensure rooms/show has what it needs
-      # @chats = @room.chats.order(created_at: :asc)
-      # render 'rooms/show', status: :unprocessable_entity
-
-      @chats = @chat.cv.chats
-      render 'cvs/show', status
-
+      render :new, status: :unprocessable_entity
     end
   end
 
   def show
-    @chat = Chat.find(params[:id])
+    @messages = @chat.messages.order(created_at: :asc)
+    @message = Message.new
   end
 
   private
 
+  def set_cv
+    @cv = Cv.find(params[:cv_id])
+  end
+
+  def set_chat
+    @chat = Chat.find(params[:id])
+  end
+
   def chat_params
-    params.require(:chat).permit(:job_title, :job_description)
+    params.require(:chat).permit(:desired_role, :job_description)
   end
 end
