@@ -17,6 +17,7 @@ cv.save!
 
 chat = Chat.new(job_title: "The job title", job_description: "The job description where some devs make some stuff and it's kind of cool")
 chat.cv = cv
+chat.user = user
 chat.save!
 
 5.times do

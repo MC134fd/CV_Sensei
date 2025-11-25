@@ -1,6 +1,6 @@
 class ChatsController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_cv, only: [:new, :create]
+  before_action :set_cv, only: [:create]
   before_action :set_chat, only: :show
 
   # GET /cvs/:cv_id/chats/new
@@ -11,12 +11,14 @@ class ChatsController < ApplicationController
 
   # POST /cvs/:cv_id/chats
   def create
-    @chat = @cv.chats.new(chat_params)
+    debugger
+    @chat = Chat.new(chat_params)
     @chat.title = Chat::DEFAULT_TITLE
+    @chat.cv = @cv
     @chat.user = current_user
 
     if @chat.save
-      redirect_to @chat
+      redirect_to chat_url(@chat)
     else
       render :new, status: :unprocessable_entity
     end
