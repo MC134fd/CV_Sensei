@@ -1,0 +1,7 @@
+<h1>New cv page</h1>
+
+<%= simple_form_for @cv do |form| %>
+  <%= form.input :title %>
+  <%= form.input :content %>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

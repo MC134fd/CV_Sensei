@@ -1,6 +1,13 @@
 <p> The CV show page </p>
 
-<% @cv.each do |resume| %>
 <%= @cv.title %>
 <%= @cv.content %>
+
+<%# I can see the "new chat" form submission on the CV page, including an option
+to add a desired role / job description #8 %>
+
+<%= simple_form_for [@cv, @chat] do |form| %>
+  <%= form.input :job_title %>
+  <%= form.input :job_description %>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>
