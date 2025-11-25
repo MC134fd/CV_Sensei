@@ -5,6 +5,7 @@ class Chat < ApplicationRecord
   PROMPT
 
   belongs_to :cv
+  belongs_to :user
 
   has_many :messages, dependent: :destroy
 
