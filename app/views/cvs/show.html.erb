@@ -1,6 +1,7 @@
-<p> The CV show page </p>
-<%= @cv.title %>
-<%= @cv.content %>
+<h1> CV show page </h1>
+
+<p>Title: <%= @cv.title %></p>
+<p>Content: <%= @cv.content %></p>
 
 <%= simple_form_for [@cv, @chat] do |form| %>
   <%= form.input :job_title %>
