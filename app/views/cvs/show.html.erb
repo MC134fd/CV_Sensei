@@ -1,6 +1,4 @@
-<p> The CV show page </p>
+<h1> CV show page </h1>
 
-<% @cv.each do |resume| %>
-<%= @cv.title %>
-<%= @cv.content %>
-<% end %>
+<p>Title: <%= @cv.title %></p>
+<p>Content: <%= @cv.content %></p>

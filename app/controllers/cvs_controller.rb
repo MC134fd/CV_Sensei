@@ -1,6 +1,5 @@
 class CvsController < ApplicationController
   def index
-
   end
 
   def new
