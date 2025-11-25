@@ -1,7 +1,9 @@
 .btn {
   background-color: $button-color;
+  border-color: $button-color;
 
    &:hover {
     background-color: $button-hover;
+    border-color: $button-hover;
   }
 }
