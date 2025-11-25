@@ -12,6 +12,7 @@ class ChatsController < ApplicationController
   # POST /cvs/:cv_id/chats
   def create
     @chat = @cv.chats.new(chat_params)
+    @chat.title = Chat::DEFAULT_TITLE
     @chat.user = current_user
 
     if @chat.save
@@ -29,6 +30,7 @@ class ChatsController < ApplicationController
 
   private
 
+
   def set_cv
     @cv = Cv.find(params[:cv_id])
   end
@@ -38,6 +40,6 @@ class ChatsController < ApplicationController
   end
 
   def chat_params
-    params.require(:chat).permit(:desired_role, :job_description)
+    params.require(:chat).permit(:job_title, :job_description)
   end
 end
