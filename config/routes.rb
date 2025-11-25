@@ -10,7 +10,11 @@ Rails.application.routes.draw do
   # Defines the root path route ("/")
   # root "posts#index"
 
-  get "cvs/:id", to: "cvs#show", as: :cv
-  get "cvs/new", to: "cvs#new"
-  post "cvs", to: "cvs#create"
+  # get "cvs/:id", to: "cvs#show", as: :cv
+  # get "cvs/new", to: "cvs#new"
+  # post "cvs", to: "cvs#create"
+
+  resources :chats, only: [:show] do
+    resources :messages, only: [:create]
+  end
 end
