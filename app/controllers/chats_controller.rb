@@ -11,7 +11,6 @@ class ChatsController < ApplicationController
 
   # POST /cvs/:cv_id/chats
   def create
-    debugger
     @chat = Chat.new(chat_params)
     @chat.title = Chat::DEFAULT_TITLE
     @chat.cv = @cv
