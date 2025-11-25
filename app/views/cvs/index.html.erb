@@ -1,0 +1,12 @@
+<div class="container text-center my-5">
+  <h1 class="mb-4">Time to sensei your CV</h1>
+  <div class="d-flex justify-content-between align-items-end">
+    <h4 class="mb-0">Your CVs:</h4>
+    <%= link_to "Add a new CV", new_cv_path, class: "btn btn-primary"%>
+  </div>
+  <div class="row my-3">
+    <% current_user.cvs.each do |cv| %>
+    <%= link_to cv.title, cv_path(cv), class: "col p-3 bg-primary bg-opacity-10 border border-primary rounded" %>
+    <% end %>
+  </div>
+</div>
