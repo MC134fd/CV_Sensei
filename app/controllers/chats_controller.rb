@@ -5,12 +5,11 @@ class ChatsController < ApplicationController
 
   def create
     @chat = @cv.chats.new(chat_params)
-    @chat.user = current_user
 
     if @chat.save
-      redirect_to @chat
+      redirect_to cv_chat_path(@cv, @chat)
     else
-      render :new, status: :unprocessable_entity
+      render 'cvs/show', status: :unprocessable_entity
     end
   end
 
@@ -30,6 +29,6 @@ class ChatsController < ApplicationController
   end
 
   def chat_params
-    params.require(:chat).permit(:desired_role, :job_description)
+    params.require(:chat).permit(:job_title, :job_description)
   end
 end
