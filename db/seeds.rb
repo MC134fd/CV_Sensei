@@ -8,8 +8,8 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
-
-user = User.last
+user = User.create(email: "example@example.com", password: "password", password_confirmation: "password")
+# user = User.last
 
 cv = Cv.new(title: "My epic cv title", content: "Yeah so this is my amazing cv, and it's the greatest so that's pretty cool isn't it")
 cv.user = user
