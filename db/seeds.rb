@@ -7,3 +7,23 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+
+
+user = User.last
+
+cv = Cv.new(title: "My epic cv title", content: "Yeah so this is my amazing cv, and it's the greatest so that's pretty cool isn't it")
+cv.user = user
+cv.save!
+
+chat = Chat.new(job_title: "The job title", job_description: "The job description where some devs make some stuff and it's kind of cool")
+chat.cv = cv
+chat.save!
+
+5.times do
+  user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
+  user_message.chat = chat
+  user_message.save!
+  assistant_message = Message.new(role: "assistant", content: "Nah, it's a good start. The main tip is.")
+  assistant_message.chat = chat
+  assistant_message.save!
+end
