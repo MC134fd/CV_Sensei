@@ -1,6 +1,10 @@
-<p> The CV show page </p>
+<h1> CV show page </h1>
 
-<% @cv.each do |resume| %>
-<%= @cv.title %>
-<%= @cv.content %>
+<p>Title: <%= @cv.title %></p>
+<p>Content: <%= @cv.content %></p>
+
+<%= simple_form_for [@cv, @chat] do |form| %>
+  <%= form.input :job_title %>
+  <%= form.input :job_description %>
+  <%= form.submit class: "btn btn-primary" %>
 <% end %>

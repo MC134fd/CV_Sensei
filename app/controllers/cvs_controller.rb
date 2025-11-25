@@ -1,4 +1,7 @@
 class CvsController < ApplicationController
+  def index
+  end
+
   def new
     @cv = Cv.new
   end
@@ -14,6 +17,7 @@ class CvsController < ApplicationController
 
   def show
     @cv = Cv.find(params[:id])
+    @chat = Chat.new
   end
 
   private
