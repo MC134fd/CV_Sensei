@@ -7,7 +7,7 @@ class CvsController < ApplicationController
     @cv = Cv.new(cv_params)
     @cv.user = current_user
     if @cv.save
-      redirect_to @cv, status: :see_other
+      redirect_to cv_path(@cv), status: :see_other
     else
       render :new, status: :unprocessable_entity
     end
@@ -21,7 +21,7 @@ class CvsController < ApplicationController
   private
 
   def cv_params
-    params.require(:cv).permit(:id, :title, :content)
+    params.require(:cv).permit(:id, :content, :title)
   end
 
 end
