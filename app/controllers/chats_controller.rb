@@ -53,6 +53,12 @@ class ChatsController < ApplicationController
     @new_chat = Chat.new
   end
 
+  def destroy
+    @chat = Chat.find(params[:id])
+    @chat.destroy
+    redirect_to chats_path, status: :see_other
+  end
+
   private
 
 
