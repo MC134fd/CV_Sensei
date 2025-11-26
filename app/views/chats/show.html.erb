@@ -1,1 +1,23 @@
-<h1>my little chat</h1>
+<h1><%= @chat.title %></h1>
+
+<h3>Your messages</h3>
+<div class="list-group">
+  <% @messages.each do |m| %>
+    <% if m.role == "user" %>
+      <div class="list-group-item px-5 text-start">
+        <%= m.content %>
+      </div>
+    <% else %>
+      <div class="list-group-item px-5 text-center">
+        <%= m.content %>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<h3>Create a new message</h3>
+
+<%= simple_form_for [@cv, @chat, @message] do |form| %>
+  <%= form.input :content %>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>
