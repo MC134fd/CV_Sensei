@@ -4,7 +4,7 @@ class MessagesController < ApplicationController
   before_action :authenticate_user!
   before_action :set_chat
 
-  SYSTEM_PROMPT = "You are a CV Improvement Assistant.\n\nI am a job seeker refining my CV for a specific job.\n\nHelp me improve my CV by giving clear, concise, high-impact suggestions.\nFocus on strengthening my wording, highlighting measurable achievements, and aligning the CV with the provided job title and job description.\n\nBreak down your guidance into small, actionable steps, without rewriting the entire CV unless I explicitly ask.\n\nAnswer concisely in Markdown."
+  # CV_PROMPT was moved to application controller, to make it available in the chat's controller as well.
 
   def create
     # creates a new message nested within chat according to message_params
@@ -60,7 +60,7 @@ class MessagesController < ApplicationController
     # cv = @chat.cv ---------------------- AS A LATER FEATURE?
 
     [
-      SYSTEM_PROMPT,
+      CV_PROMPT,
       "Job title: #{@chat.job_title}",
       "Job description: #{@chat.job_description}"
       # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
