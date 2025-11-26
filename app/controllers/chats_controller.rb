@@ -17,12 +17,27 @@ class ChatsController < ApplicationController
   # POST /cvs/:cv_id/chats
   def create
     @chat = Chat.new(chat_params)
-
     @chat.cv = @cv
     @chat.user = current_user
 
     if @chat.save
       @chat.generate_title
+      # creating the new message, out of the chat form
+      @first_message = @chat.messages.new(content: first_message_content)
+      @first_message.chat = @chat
+      @first_message.role = "user"
+      if @first_message.save
+        # call LLM with system prompt engineering n context
+        cv_chat = RubyLLM.chat
+        response = cv_chat.with_instructions(CV_PROMPT).ask(@first_message.content)
+
+        # assistant reply message
+        @chat.messages.create!(
+          role: "assistant",
+          content: response.content
+        )
+      end
+      # redirecting to the chat show page
       redirect_to chat_url(@chat)
     else
       render :new, status: :unprocessable_entity
@@ -49,5 +64,9 @@ class ChatsController < ApplicationController
 
   def chat_params
     params.require(:chat).permit(:job_title, :job_description)
+  end
+
+  def first_message_content
+    "Job Title: #{@chat.job_title} \n Job Description: #{@chat.job_description}"
   end
 end
