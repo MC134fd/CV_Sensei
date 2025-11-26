@@ -3,6 +3,11 @@ class ChatsController < ApplicationController
   before_action :set_cv, only: [:create]
   before_action :set_chat, only: :show
 
+  # GET /chats
+  def index
+    @chats = Chat.where(user: current_user)
+  end
+
   # GET /cvs/:cv_id/chats/new
   # def new
   #   @chat = @cv.chats.new
@@ -27,6 +32,7 @@ class ChatsController < ApplicationController
   def show
     @messages = @chat.messages.order(created_at: :asc)
     @message = Message.new
+    @chats = @chat.cv.chats
   end
 
   private
