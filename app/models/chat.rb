@@ -1,21 +1,22 @@
 class Chat < ApplicationRecord
-  DEFAULT_TITLE = "Untitled"
   TITLE_PROMPT = <<~PROMPT
-    Generate a short, descriptive, 3-to-6 word title that summarizes the information the user has input for this request.
+    You are an assistant specialising in summarising a job title and job description into a 3-to-6 word title.
   PROMPT
 
   belongs_to :cv
   belongs_to :user
 
+  validates :job_title, :job_description, presence: true
+
   has_many :messages, dependent: :destroy
 
-  def generate_title_from_first_message
-    return unless title == DEFAULT_TITLE
+  def generate_title
+    return unless title.nil?
 
-    first_user_message = messages.where(role: "user").order(:created_at).first
-    return if first_user_message.nil?
+    chat_context = "job title: #{job_title}, job description: #{job_description}"
+    instructions = [TITLE_PROMPT, chat_context].compact.join("\n\n")
 
-    response = RubyLLM.chat.with_instructions(TITLE_PROMPT).ask(first_user_message.content)
+    response = RubyLLM.chat.with_instructions(instructions).ask("summarize the following")
     update(title: response.content)
   end
 end
