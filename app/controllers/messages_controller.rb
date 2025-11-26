@@ -18,6 +18,7 @@ class MessagesController < ApplicationController
     if @message.save
       # call LLM with system prompt engineering n context
       cv_chat = RubyLLM.chat
+      build_conversation_history
       response = cv_chat.with_instructions(instructions).ask(@message.content)
 
       # assistant reply message
@@ -36,6 +37,12 @@ class MessagesController < ApplicationController
   end
 
   private
+
+  def build_conversation_history
+    @chat.messages.each do |message|
+      @cv_chat.add_message(message)
+    end
+  end
 
   # finds the chat that belongs to the current user
   # matches your schema: chats has user_id, cv_id
