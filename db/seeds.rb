@@ -8,15 +8,32 @@
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
 
+puts "Clearing old data..."
+Message.delete_all
+Chat.delete_all
+Cv.delete_all
+User.delete_all
+
+puts "Seeding..."
+
 user = User.create(email: "example@example.com", password: "password", password_confirmation: "password")
 # user = User.last
 
-cv = Cv.new(title: "My epic cv title", content: "Yeah so this is my amazing cv, and it's the greatest so that's pretty cool isn't it")
+cv = Cv.new(title: "Back-end Software Developer", content: "Experienced software engineer with a focus on high-performance backend systems")
+cv = Cv.new(title: "Marketing Role CV", content: "Marketing specialist with expertise in brand strategy and campaign execution")
+cv = Cv.new(title: "Product Manager Role", content: "Product manager skilled in roadmap planning and stakeholder collaboration")
+cv = Cv.new(title: "UX Designer", content: "UX designer passionate about accessible and intuitive digital experiences")
+cv = Cv.new(title: "Full Stack CV", content: "Full-stack developer proficient in Rails, React, and cloud services")
+cv = Cv.new(title: "Data Analyst Role CV", content: "Data analyst with strong SQL and dashboard-building experience")
+
 cv.user = user
 #user_id = user.id
 cv.save!
 
 chat = Chat.new(job_title: "The job title", job_description: "The job description where some devs make some stuff and it's kind of cool")
+chat = Chat.new()
+
+
 chat.cv = cv
 chat.user = user
 #chat.user_id = user.id
