@@ -10,7 +10,7 @@
           <h5 class="off-canvas-title">Your chats</h5>
         </div>
         <div class="off-canvas-body">
-          <ul class="list-group list-group-flush">
+          <ul class="list-group list-group-flush mb-3">
             <% @chats.each do |chat| %>
               <li class="list-group-item">
                 <%= chat.title %>
@@ -19,14 +19,7 @@
           </ul>
 
           <div class="off-canvas-header">
-            <h5 class="mb-4">What role are you applying for? </h5>
-          </div>
-          <div class="form-inputs">
-            <%= simple_form_for [@cv, @new_chat] do |form| %>
-              <%= form.input :job_title, required: true %>
-              <%= form.input :job_description %>
-              <%= form.submit class: "btn btn d-block mx-auto mt-4" %>
-            <% end %>
+            <%= link_to "Create a New Chat", cv_path(@cv), class: "btn btn-primary" %>
           </div>
         </div>
       </div>
