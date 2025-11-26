@@ -13,11 +13,13 @@ user = User.create(email: "example@example.com", password: "password", password_
 
 cv = Cv.new(title: "My epic cv title", content: "Yeah so this is my amazing cv, and it's the greatest so that's pretty cool isn't it")
 cv.user = user
+#user_id = user.id
 cv.save!
 
 chat = Chat.new(job_title: "The job title", job_description: "The job description where some devs make some stuff and it's kind of cool")
 chat.cv = cv
 chat.user = user
+#chat.user_id = user.id
 chat.save!
 
 5.times do
