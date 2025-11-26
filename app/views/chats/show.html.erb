@@ -1,22 +1,37 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2" data-controller="toggle">
+    <div class="col-md-2 vh-100 sticky-top" style="top:65px;" data-controller="toggle">
       <div id="chats-side-bar-open">
         <i class="fa-solid fa-list-ul btn" data-action="click->toggle#call" data-toggle-target="openSidebar"></i>
       </div>
       <div class="off-canvas off-canvas-start vh-100 d-none" id="chats-side-bar" data-toggle-target="sidebar">
         <div class="off-canvas-header">
-          <h5 class="off-canvas-title">Your chats</h5>
           <button class="btn-close" data-action="click->toggle#call"></button>
+          <h5 class="off-canvas-title">Your chats</h5>
         </div>
         <div class="off-canvas-body">
-          <% @chats.each do |chat| %>
-            <p><%= chat.title %></p>
-          <% end %>
+          <ul class="list-group list-group-flush">
+            <% @chats.each do |chat| %>
+              <li class="list-group-item">
+                <%= chat.title %>
+              <% end %>
+            </li>
+          </ul>
+
+          <div class="off-canvas-header">
+            <h5 class="mb-4">What role are you applying for? </h5>
+          </div>
+          <div class="form-inputs">
+            <%= simple_form_for [@cv, @new_chat] do |form| %>
+              <%= form.input :job_title, required: true %>
+              <%= form.input :job_description %>
+              <%= form.submit class: "btn btn d-block mx-auto mt-4" %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>
-    <div class="col-md-10">
+    <div class="col-md-10 sticky-top" style="top:70px;">
       <%# The page content goes here %>
 
 
@@ -56,15 +71,7 @@
                 <% end %>
               </div>
 
-            </div>
-          </div>
-        </div>
-
-        <div class="container mt-5">
-          <div class="row justify-content-center">
-            <div class="col-md-9">
               <h3>Create a new message</h3>
-
               <div class="form-inputs" data-bs-theme="light">
                 <%= simple_form_for [@chat, @message] do |form| %>
                   <%= form.input :content %>
@@ -75,7 +82,5 @@
             </div>
           </div>
         </div>
-
-
 
       </div>
