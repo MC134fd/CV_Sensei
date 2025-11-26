@@ -27,6 +27,7 @@ class ChatsController < ApplicationController
   def show
     @messages = @chat.messages.order(created_at: :asc)
     @message = Message.new
+    @chats = @chat.cv.chats
   end
 
   private
