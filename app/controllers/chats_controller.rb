@@ -12,11 +12,12 @@ class ChatsController < ApplicationController
   # POST /cvs/:cv_id/chats
   def create
     @chat = Chat.new(chat_params)
-    @chat.title = Chat::DEFAULT_TITLE
+
     @chat.cv = @cv
     @chat.user = current_user
 
     if @chat.save
+      @chat.generate_title
       redirect_to chat_url(@chat)
     else
       render :new, status: :unprocessable_entity
