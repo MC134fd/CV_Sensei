@@ -8,7 +8,6 @@ class CvsController < ApplicationController
 
   def create
     @cv = Cv.new(cv_params)
-    @cv.user = current_user
     if @cv.save
       redirect_to cv_path(@cv), status: :see_other
     else

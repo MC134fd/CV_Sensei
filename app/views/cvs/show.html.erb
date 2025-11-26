@@ -1,29 +1,10 @@
-<h1 class="row justify-content-center">Let's get tailoring!</h1>
+<h1> CV show page </h1>
 
-<div class="d-flex align-items-start main-container mt-5">
+<p>Title: <%= @cv.title %></p>
+<p>Content: <%= @cv.content %></p>
 
-  <div class="container mt-5">
-    <div class="row justify-content-start ps-5">
-      <div class="col-md-10">
-        <h2 class="mb-4">What we have so far:</h2>
-        <p>Title: <%= @cv.title %></p>
-        <p>Content: <%= @cv.content %></p>
-      </div>
-    </div>
-  </div>
-
-  <div class="container mt-5">
-    <div class="row justify-content-center">
-      <div class="col-md-9">
-        <h2 class="mb-4">What role are you applying for? </h2>
-        <div class="form-inputs" data-bs-theme="light">
-          <%= simple_form_for [@cv, @chat] do |form| %>
-            <%= form.input :job_title, required: true %>
-            <%= form.input :job_description %>
-            <%= form.submit class: "btn btn d-block mx-auto mt-4" %>
-          <% end %>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
+<%= simple_form_for [@cv, @chat] do |form| %>
+  <%= form.input :job_title %>
+  <%= form.input :job_description %>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>

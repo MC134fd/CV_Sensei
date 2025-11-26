@@ -1,62 +1,23 @@
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-2" data-controller="toggle">
-      <div id="chats-side-bar-open">
-        <i class="fa-solid fa-list-ul btn" data-action="click->toggle#call" data-toggle-target="openSidebar"></i>
+<h1><%= @chat.title %></h1>
+
+<h3>Your messages</h3>
+<div class="list-group">
+  <% @messages.each do |m| %>
+    <% if m.role == "user" %>
+      <div class="list-group-item px-5 text-start">
+        <%= m.content %>
       </div>
-      <div class="off-canvas off-canvas-start vh-100 d-none" id="chats-side-bar" data-toggle-target="sidebar">
-        <div class="off-canvas-header">
-          <h5 class="off-canvas-title">Your chats</h5>
-          <button class="btn-close" data-action="click->toggle#call"></button>
-        </div>
-        <div class="off-canvas-body">
-          <% @chats.each do |chat| %>
-            <p><%= chat.title %></p>
-          <% end %>
-        </div>
+    <% else %>
+      <div class="list-group-item px-5 text-center">
+        <%= m.content %>
       </div>
-    </div>
-    <div class="col-md-10">
-      <%# The page content goes here %>
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <h1><%= @chat.title %></h1>
-
-            <h3>Your messages</h3>
-            <div class="list-group">
-              <% @messages.each do |m| %>
-                <% if m.role == "user" %>
-                  <div class="list-group-item px-5 text-start">
-                    <%= m.content %>
-                  </div>
-                <% else %>
-                  <div class="row justify-content-center">
-                    <%= m.content %>
-                  </div>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-
-        <div class="container mt-5">
-          <div class="row justify-content-center">
-            <div class="col-md-8">
-              <h3>Create a new message</h3>
-
-              <div class="form-inputs" data-bs-theme="light">
-                <%= simple_form_for [@cv, @chat, @message] do |form| %>
-                  <%= form.input :content %>
-                  <%= form.submit class: "btn btn-primary" %>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </div>
+    <% end %>
+  <% end %>
 </div>
+
+<h3>Create a new message</h3>
+
+<%= simple_form_for [@cv, @chat, @message] do |form| %>
+  <%= form.input :content %>
+  <%= form.submit class: "btn btn-primary" %>
+<% end %>
