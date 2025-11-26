@@ -25,7 +25,7 @@ class ChatsController < ApplicationController
       @chat.generate_title
       redirect_to chat_url(@chat)
     else
-      render :new, status: :unprocessable_entity
+      render "cvs/show", status: :unprocessable_entity
     end
   end
 
