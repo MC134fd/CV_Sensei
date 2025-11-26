@@ -22,7 +22,7 @@ class MessagesController < ApplicationController
 
       # assistant reply message
       @chat.messages.create!(
-        role: "AI assistant",
+        role: "assistant",
         content: response.content
       )
 
