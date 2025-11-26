@@ -18,35 +18,55 @@
     </div>
     <div class="col-md-10">
       <%# The page content goes here %>
-      <div class="container mt-5">
-        <div class="row justify-content-center">
-          <div class="col-md-8">
-            <h1><%= @chat.title %></h1>
 
-            <h3>Your messages</h3>
-            <div class="list-group">
-              <% @messages.each do |m| %>
-                <% if m.role == "user" %>
-                  <div class="list-group-item px-5 text-start">
-                    <%= m.content %>
-                  </div>
-                <% else %>
-                  <div class="row justify-content-center">
-                    <%= m.content %>
-                  </div>
-                <% end %>
-              <% end %>
+
+      <h1 class="row justify-content-center">Let's get tailoring!</h1>
+
+      <div class="d-flex align-items-start main-container mt-5">
+
+        <div class="container mt-5">
+          <div class="row justify-content-start ps-5">
+            <div class="col-md-10">
+              <h2 class="mb-4">What we have so far:</h2>
+              <p>Title: <%= @cv.title %></p>
+              <p>Content: <%= @cv.content %></p>
             </div>
           </div>
         </div>
 
         <div class="container mt-5">
           <div class="row justify-content-center">
-            <div class="col-md-8">
+            <div class="col-md-9">
+
+
+              <h1><%= @chat.title %></h1>
+
+              <h3>Your messages</h3>
+              <div class="list-group">
+                <% @messages.each do |m| %>
+                  <% if m.role == "user" %>
+                    <div class="list-group-item px-5 text-start">
+                      <%= m.content %>
+                    </div>
+                  <% else %>
+                    <div class="row justify-content-center">
+                      <%= m.content %>
+                    </div>
+                  <% end %>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="container mt-5">
+          <div class="row justify-content-center">
+            <div class="col-md-9">
               <h3>Create a new message</h3>
 
               <div class="form-inputs" data-bs-theme="light">
-                <%= simple_form_for [@cv, @chat, @message] do |form| %>
+                <%= simple_form_for [@chat, @message] do |form| %>
                   <%= form.input :content %>
                   <%= form.submit class: "btn btn-primary" %>
                 <% end %>
@@ -56,7 +76,6 @@
           </div>
         </div>
 
+
+
       </div>
-    </div>
-  </div>
-</div>

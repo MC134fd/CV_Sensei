@@ -34,6 +34,8 @@ class ChatsController < ApplicationController
     @messages = @chat.messages.order(created_at: :asc)
     @message = Message.new
     @chats = @chat.cv.chats
+    @cv = @chat.cv
+    @new_chat = Chat.new
   end
 
   private
