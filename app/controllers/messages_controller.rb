@@ -15,19 +15,18 @@ class MessagesController < ApplicationController
     @message.role = "user"
     if @message.save
       # call LLM with system prompt engineering n context
-      cv_chat = RubyLLM.chat
-      response = cv_chat.with_instructions(instructions).ask(@message.content)
-      @message.input_tokens = response.input_tokens
+      @cv_chat = RubyLLM.chat
+      build_conversation_history
+      response = @cv_chat.with_instructions(instructions).ask(@message.content)
+      @message.update(input_count: response.input_tokens)
       # assistant reply message
       @chat.messages.create!(
         role: "assistant",
         content: response.content
       )
-
       redirect_to chat_path(@chat)
     else
       # re-render the chat page with errors
-      # @cv = @chat.cv ---------------------- AS A LATER FEATURE?
       @messages = @chat.messages.order(:created_at)
       @chats = @chat.cv.chats
       @cv = @chat.cv
@@ -50,13 +49,17 @@ class MessagesController < ApplicationController
 
   # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
   def instructions
-    # cv = @chat.cv ---------------------- AS A LATER FEATURE?
-
     [
       CV_PROMPT,
       "Job title: #{@chat.job_title}",
-      "Job description: #{@chat.job_description}"
-      # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
+      "Job description: #{@chat.job_description}",
+      "My current CV:\n#{@chat.cv.content}"
     ].join("\n\n")
+  end
+
+  def build_conversation_history
+    @chat.messages.each do |message|
+      @cv_chat.add_message(message)
+    end
   end
 end
