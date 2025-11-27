@@ -27,6 +27,9 @@ class MessagesController < ApplicationController
     else
         # re-render the chat page with errors
         # @cv = @chat.cv ---------------------- AS A LATER FEATURE?
+        # The else branch renders the show page without going through ChatsController#show, so you must manually set @chats, otherwise the view receives nil and .each fails.
+        @cv = @chat.cv
+        @chats = Chat.order(created_at: :desc)
         @messages = @chat.messages.order(:created_at)
         render "chats/show", status: :unprocessable_entity
     end

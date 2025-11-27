@@ -66,7 +66,7 @@
           <h3>Create a new message</h3>
           <div class="form-inputs" data-bs-theme="light">
             <%= simple_form_for [@chat, @message] do |form| %>
-              <%= form.input :content %>
+              <%= form.input :content, required: true%>
               <%= form.input :file, as: :file, label:"Upload a file (PDF, image, or audio)" %>
               <%= form.submit class: "btn btn-primary" %>
             <% end %>
