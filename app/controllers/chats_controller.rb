@@ -23,7 +23,7 @@ class ChatsController < ApplicationController
     if @chat.save
       @chat.generate_title
       # creating the new message, out of the chat form
-      @first_message = @chat.messages.new(content: first_message_content)
+      @first_message = Message.new(content: first_message_content)
       @first_message.chat = @chat
       @first_message.role = "user"
       if @first_message.save

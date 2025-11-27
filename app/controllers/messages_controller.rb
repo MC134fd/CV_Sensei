@@ -13,7 +13,6 @@ class MessagesController < ApplicationController
     @message.chat = @chat
     # so that the user knows the message is made by a user
     @message.role = "user"
-
     if @message.save
       # call LLM with system prompt engineering n context
       cv_chat = RubyLLM.chat

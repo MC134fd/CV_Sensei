@@ -41,7 +41,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_150308) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "input_tokens"
+    t.integer "input_tokens", default: 0
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 

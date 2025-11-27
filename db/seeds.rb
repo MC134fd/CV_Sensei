@@ -51,34 +51,34 @@ chat1.cv = cv
 chat1.user = user
 chat1.title = " Back-end software developer"
 chat1.save!
-user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
+user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.", input_tokens: 0)
 user_message.chat = chat1
 user_message.save!
-assistant_message = Message.new(role: "assistant", content: "It's good, it just needs more of ... ")
+assistant_message = Message.new(role: "assistant", content: "It's good, it just needs more of ... ", input_tokens: 0)
 assistant_message.chat = chat1
 assistant_message.save!
-user_message1 = Message.new(role: "user", content: "How about if I talk a bit more about my experience in Ruby?")
+user_message1 = Message.new(role: "user", content: "How about if I talk a bit more about my experience in Ruby?", input_tokens: 0)
 user_message1.chat = chat1
 user_message1.save!
-assistant_message1 = Message.new(role: "assistant", content: "Yes I think that's a great idea! You can add more about which frameworks you're familiar with in the skills section of your CV")
+assistant_message1 = Message.new(role: "assistant", content: "Yes I think that's a great idea! You can add more about which frameworks you're familiar with in the skills section of your CV", input_tokens: 0)
 assistant_message1.chat = chat1
 assistant_message1.save!
-user_message2 = Message.new(role: "user", content: "Should I add my hobbies and interests?")
+user_message2 = Message.new(role: "user", content: "Should I add my hobbies and interests?", input_tokens: 0)
 user_message2.chat = chat1
 user_message2.save!
-assistant_message2 = Message.new(role: "assistant", content: "Nobody cares about that!")
+assistant_message2 = Message.new(role: "assistant", content: "Nobody cares about that!", input_tokens: 0)
 assistant_message2.chat = chat1
 assistant_message2.save!
-user_message3 = Message.new(role: "user", content: "Do I need to add my name on this?")
+user_message3 = Message.new(role: "user", content: "Do I need to add my name on this?", input_tokens: 0)
 user_message3.chat = chat1
 user_message3.save!
-assistant_message3 = Message.new(role: "assistant", content: "Yes, how else will they know your name!")
+assistant_message3 = Message.new(role: "assistant", content: "Yes, how else will they know your name!", input_tokens: 0)
 assistant_message3.chat = chat1
 assistant_message3.save!
-user_message4 = Message.new(role: "user", content: "Is there anything else that you would recommend me adding?")
+user_message4 = Message.new(role: "user", content: "Is there anything else that you would recommend me adding?", input_tokens: 0)
 user_message4.chat = chat1
 user_message4.save!
-assistant_message4 = Message.new(role: "assistant", content: "I think tailor it a little more to your experience managing databases. Can you share some more stats on that?")
+assistant_message4 = Message.new(role: "assistant", content: "I think tailor it a little more to your experience managing databases. Can you share some more stats on that?", input_tokens: 0)
 assistant_message4.chat = chat1
 assistant_message4.save!
 
@@ -91,28 +91,28 @@ chat2.user = user
 chat2.title = "Developer (Ruby: full-stack)"
 chat2.save!
 
-user_message5 = Message.new(role: "user", content: "How can I make sure that my experience in Ruby shines through?")
+user_message5 = Message.new(role: "user", content: "How can I make sure that my experience in Ruby shines through?", input_tokens: 0)
 user_message5.chat = chat2
 user_message5.save!
-assistant_message5 = Message.new(role: "assistant", content: "What is your Ruby experience? Have you added it into the CV?")
+assistant_message5 = Message.new(role: "assistant", content: "What is your Ruby experience? Have you added it into the CV?", input_tokens: 0)
 assistant_message5.chat = chat2
 assistant_message5.save!
-user_message6 = Message.new(role: "user", content: "I have maintained web applications, should I include that?")
+user_message6 = Message.new(role: "user", content: "I have maintained web applications, should I include that?", input_tokens: 0)
 user_message6.chat = chat2
 user_message6.save!
-assistant_message6 = Message.new(role: "assistant", content: "Yes I think that's a great idea! And if you have experience with other frameworks you can also add that into your CV")
+assistant_message6 = Message.new(role: "assistant", content: "Yes I think that's a great idea! And if you have experience with other frameworks you can also add that into your CV", input_tokens: 0)
 assistant_message6.chat = chat2
 assistant_message6.save!
-user_message7 = Message.new(role: "user", content: "Do I add my JavaScript experience?")
+user_message7 = Message.new(role: "user", content: "Do I add my JavaScript experience?", input_tokens: 0)
 user_message7.chat = chat2
 user_message7.save!
-assistant_message7 = Message.new(role: "assistant", content: "Definitely, JavaScript is mentioned in the job description so do add that.")
+assistant_message7 = Message.new(role: "assistant", content: "Definitely, JavaScript is mentioned in the job description so do add that.", input_tokens: 0)
 assistant_message7.chat = chat2
 assistant_message7.save!
-user_message8 = Message.new(role: "user", content: "Thank you")
+user_message8 = Message.new(role: "user", content: "Thank you!", input_tokens: 0)
 user_message8.chat = chat2
 user_message8.save!
-assistant_message8 = Message.new(role: "assistant", content: "No problem!")
+assistant_message8 = Message.new(role: "assistant", content: "No problem!", input_tokens: 0)
 assistant_message8.chat = chat2
 assistant_message8.save!
 
@@ -125,28 +125,28 @@ chat3.user = user
 chat3.title = "Junior level engineer"
 chat3.save!
 
-user_message9 = Message.new(role: "user", content: "Do I need to code for this job?")
+user_message9 = Message.new(role: "user", content: "Do I need to code for this job?", input_tokens: 0)
 user_message9.chat = chat3
 user_message9.save!
-assistant_message9 = Message.new(role: "assistant", content: "Yes, this is a junior front-end developer so you do need to be able to code")
+assistant_message9 = Message.new(role: "assistant", content: "Yes, this is a junior front-end developer so you do need to be able to code", input_tokens: 0)
 assistant_message9.chat = chat3
 assistant_message9.save!
-user_message10 = Message.new(role: "user", content: "I have maintained web applications, should I include that?")
+user_message10 = Message.new(role: "user", content: "I have maintained web applications, should I include that?", input_tokens: 0)
 user_message10.chat = chat3
 user_message10.save!
-assistant_message10 = Message.new(role: "assistant", content: "Yes I think that's a great idea! And if you have experience with other frameworks you can also add that into your CV")
+assistant_message10 = Message.new(role: "assistant", content: "Yes I think that's a great idea! And if you have experience with other frameworks you can also add that into your CV", input_tokens: 0)
 assistant_message10.chat = chat3
 assistant_message10.save!
-user_message11 = Message.new(role: "user", content: "Do I add my JavaScript experience?")
+user_message11 = Message.new(role: "user", content: "Do I add my JavaScript experience?", input_tokens: 0)
 user_message11.chat = chat3
 user_message11.save!
-assistant_message11 = Message.new(role: "assistant", content: "Definitely, but I also think add your HTML experience.")
+assistant_message11 = Message.new(role: "assistant", content: "Definitely, but I also think add your HTML experience.", input_tokens: 0)
 assistant_message11.chat = chat3
 assistant_message11.save!
-user_message12 = Message.new(role: "user", content: "What else do you think I should add?")
+user_message12 = Message.new(role: "user", content: "What else do you think I should add?", input_tokens: 0)
 user_message12.chat = chat3
 user_message12.save!
-assistant_message12 = Message.new(role: "assistant", content: "Any collaboration experience would be great to add - share a little about which teams you've collaborated with in the past, and any experience working between teams.")
+assistant_message12 = Message.new(role: "assistant", content: "Any collaboration experience would be great to add - share a little about which teams you've collaborated with in the past, and any experience working between teams.", input_tokens: 0)
 assistant_message12.chat = chat3
 assistant_message12.save!
 
@@ -158,34 +158,34 @@ chat4.user = user
 chat4.title = "Marketing manager role application"
 chat4.save!
 
-user_message13 = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
+user_message13 = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.", input_tokens: 0)
 user_message13.chat = chat4
 user_message13.save!
-assistant_message13 = Message.new(role: "assistant", content: "It's good, it just needs more of your experience working on events and showcases!")
+assistant_message13 = Message.new(role: "assistant", content: "It's good, it just needs more of your experience working on events and showcases!", input_tokens: 0)
 assistant_message13.chat = chat4
 assistant_message13.save!
-user_message14 = Message.new(role: "user", content: "How specific should I be in that section?")
+user_message14 = Message.new(role: "user", content: "How specific should I be in that section?", input_tokens: 0)
 user_message14.chat = chat4
 user_message14.save!
-assistant_message14 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add specific KPIs and indications of the scale of the events you worked on.")
+assistant_message14 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add specific KPIs and indications of the scale of the events you worked on.", input_tokens: 0)
 assistant_message14.chat = chat4
 assistant_message14.save!
-user_message15 = Message.new(role: "user", content: "Do I need to add my eduation?")
+user_message15 = Message.new(role: "user", content: "Do I need to add my eduation?", input_tokens: 0)
 user_message15.chat = chat4
 user_message15.save!
-assistant_message15 = Message.new(role: "assistant", content: "Yes, you definitely need to talk about your education background. I recommend adding a separate education section.")
+assistant_message15 = Message.new(role: "assistant", content: "Yes, you definitely need to talk about your education background. I recommend adding a separate education section.", input_tokens: 0)
 assistant_message15.chat = chat4
 assistant_message15.save!
-user_message16 = Message.new(role: "user", content: "How about other languages that I speak?")
+user_message16 = Message.new(role: "user", content: "How about other languages that I speak?", input_tokens: 0)
 user_message16.chat = chat4
 user_message16.save!
-assistant_message16 = Message.new(role: "assistant", content: "I think you should include those too, because you never know if that could help in reaching other audiences or markets?")
+assistant_message16 = Message.new(role: "assistant", content: "I think you should include those too, because you never know if that could help in reaching other audiences or markets?", input_tokens: 0)
 assistant_message16.chat = chat4
 assistant_message16.save!
-user_message17 = Message.new(role: "user", content: "Anything else?")
+user_message17 = Message.new(role: "user", content: "Anything else?", input_tokens: 0)
 user_message17.chat = chat4
 user_message17.save!
-assistant_message17 = Message.new(role: "assistant", content: "If you can use any tools or softwares that might be good to include too, mentioning the names specifically of those that you are familiar with?")
+assistant_message17 = Message.new(role: "assistant", content: "If you can use any tools or softwares that might be good to include too, mentioning the names specifically of those that you are familiar with?", input_tokens: 0)
 assistant_message17.chat = chat4
 assistant_message17.save!
 
@@ -197,34 +197,34 @@ chat5.user = user
 chat5.title = "Event marketing manager resume"
 chat5.save!
 
-user_message18 = Message.new(role: "user", content: "I think my CV is already perfect but my friend made me add my CV into this new web app.")
+user_message18 = Message.new(role: "user", content: "I think my CV is already perfect but my friend made me add my CV into this new web app.", input_tokens: 0)
 user_message18.chat = chat5
 user_message18.save!
-assistant_message18 = Message.new(role: "assistant", content: "It's good, it just needs more of your experience working on events and showcases, can you include more of your work experience?")
+assistant_message18 = Message.new(role: "assistant", content: "It's good, it just needs more of your experience working on events and showcases, can you include more of your work experience?", input_tokens: 0)
 assistant_message18.chat = chat5
 assistant_message18.save!
-user_message19 = Message.new(role: "user", content: "How specific should I be in that section?")
+user_message19 = Message.new(role: "user", content: "How specific should I be in that section?", input_tokens: 0)
 user_message19.chat = chat5
 user_message19.save!
-assistant_message19 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of attendees and revenue of any events that you have organised in the past. Do you have that kind of information to add in?")
+assistant_message19 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of attendees and revenue of any events that you have organised in the past. Do you have that kind of information to add in?", input_tokens: 0)
 assistant_message19.chat = chat5
 assistant_message19.save!
-user_message20 = Message.new(role: "user", content: "Do I need to add my eduation?")
+user_message20 = Message.new(role: "user", content: "Do I need to add my eduation?", input_tokens: 0)
 user_message20.chat = chat5
 user_message20.save!
-assistant_message20 = Message.new(role: "assistant", content: "Yes, you definitely need to talk about your education background. I recommend adding a separate education section.")
+assistant_message20 = Message.new(role: "assistant", content: "Yes, you definitely need to talk about your education background. I recommend adding a separate education section.", input_tokens: 0)
 assistant_message20.chat = chat5
 assistant_message20.save!
-user_message21 = Message.new(role: "user", content: "How about other languages that I speak?")
+user_message21 = Message.new(role: "user", content: "How about other languages that I speak?", input_tokens: 0)
 user_message21.chat = chat5
 user_message21.save!
-assistant_message21 = Message.new(role: "assistant", content: "I think you should include those too, because you never know if that could help in reaching other audiences or markets?")
+assistant_message21 = Message.new(role: "assistant", content: "I think you should include those too, because you never know if that could help in reaching other audiences or markets?", input_tokens: 0)
 assistant_message21.chat = chat5
 assistant_message21.save!
-user_message22 = Message.new(role: "user", content: "Anything else?")
+user_message22 = Message.new(role: "user", content: "Anything else?", input_tokens: 0)
 user_message22.chat = chat5
 user_message22.save!
-assistant_message22 = Message.new(role: "assistant", content: "If you can use any tools or softwares that might be good to include too, mentioning the names specifically of those that you are familiar with?")
+assistant_message22 = Message.new(role: "assistant", content: "If you can use any tools or softwares that might be good to include too, mentioning the names specifically of those that you are familiar with?", input_tokens: 0)
 assistant_message22.chat = chat5
 assistant_message22.save!
 
@@ -238,34 +238,34 @@ chat6.user = user
 chat6.title = "Product strategy manager"
 chat6.save!
 
-user_message23 = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
+user_message23 = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.", input_tokens: 0)
 user_message23.chat = chat6
 user_message23.save!
-assistant_message23 = Message.new(role: "assistant", content: "It is not very long at all - I think you need to be more elaborate about your work experience. Why don't you start by adding that in?")
+assistant_message23 = Message.new(role: "assistant", content: "It is not very long at all - I think you need to be more elaborate about your work experience. Why don't you start by adding that in?", input_tokens: 0)
 assistant_message23.chat = chat6
 assistant_message23.save!
-user_message24 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?")
+user_message24 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?", input_tokens: 0)
 user_message24.chat = chat6
 user_message24.save!
-assistant_message24 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.")
+assistant_message24 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.", input_tokens: 0)
 assistant_message24.chat = chat6
 assistant_message24.save!
-user_message25 = Message.new(role: "user", content: "Is it important to add my contact details?")
+user_message25 = Message.new(role: "user", content: "Is it important to add my contact details?", input_tokens: 0)
 user_message25.chat = chat6
 user_message25.save!
-assistant_message25 = Message.new(role: "assistant", content: "They will definitely need that to get in touch with you.")
+assistant_message25 = Message.new(role: "assistant", content: "They will definitely need that to get in touch with you.", input_tokens: 0)
 assistant_message25.chat = chat6
 assistant_message25.save!
-user_message26 = Message.new(role: "user", content: "If I've worked on cross-team collaboration before, should I include that?")
+user_message26 = Message.new(role: "user", content: "If I've worked on cross-team collaboration before, should I include that?", input_tokens: 0)
 user_message26.chat = chat6
 user_message26.save!
-assistant_message26 = Message.new(role: "assistant", content: "Definitely include that. Particularly if you have experience working with engineers, designers, marketers, and executives that's really important to include.")
+assistant_message26 = Message.new(role: "assistant", content: "Definitely include that. Particularly if you have experience working with engineers, designers, marketers, and executives that's really important to include.", input_tokens: 0)
 assistant_message26.chat = chat6
 assistant_message26.save!
-user_message27 = Message.new(role: "user", content: "Is there anything else I should add?")
+user_message27 = Message.new(role: "user", content: "Is there anything else I should add?", input_tokens: 0)
 user_message27.chat = chat6
 user_message27.save!
-assistant_message27 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of attendees and revenue of any events that you have organised in the past. Do you have that kind of information to add in?")
+assistant_message27 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of attendees and revenue of any events that you have organised in the past. Do you have that kind of information to add in?", input_tokens: 0)
 assistant_message27.chat = chat6
 assistant_message27.save!
 
@@ -277,34 +277,34 @@ chat7.user = user
 chat7.title = "Experienced product marketing manager"
 chat7.save!
 
-user_message28 = Message.new(role: "user", content: "I do think that this is the greatest CV in the whole world, but I really want this product marketing manager job. Is there anything that you can suggest?")
+user_message28 = Message.new(role: "user", content: "I do think that this is the greatest CV in the whole world, but I really want this product marketing manager job. Is there anything that you can suggest?", input_tokens: 0)
 user_message28.chat = chat7
 user_message28.save!
-assistant_message28 = Message.new(role: "assistant", content: "The most important thing is whether you have any similar experience to product marketing? Including any experience like this is relevant and important.")
+assistant_message28 = Message.new(role: "assistant", content: "The most important thing is whether you have any similar experience to product marketing? Including any experience like this is relevant and important.", input_tokens: 0)
 assistant_message28.chat = chat7
 assistant_message28.save!
-user_message29 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?")
+user_message29 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?", input_tokens: 0)
 user_message29.chat = chat7
 user_message29.save!
-assistant_message29 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.")
+assistant_message29 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.", input_tokens: 0)
 assistant_message29.chat = chat7
 assistant_message29.save!
-user_message30 = Message.new(role: "user", content: "Is it important to add my contact details?")
+user_message30 = Message.new(role: "user", content: "Is it important to add my contact details?", input_tokens: 0)
 user_message30.chat = chat7
 user_message30.save!
-assistant_message30 = Message.new(role: "assistant", content: "They will definitely need that to get in touch with you.")
+assistant_message30 = Message.new(role: "assistant", content: "They will definitely need that to get in touch with you.", input_tokens: 0)
 assistant_message30.chat = chat7
 assistant_message30.save!
-user_message31 = Message.new(role: "user", content: "I worked in sales for a little bit, should I add that?")
+user_message31 = Message.new(role: "user", content: "I worked in sales for a little bit, should I add that?", input_tokens: 0)
 user_message31.chat = chat7
 user_message31.save!
-assistant_message31 = Message.new(role: "assistant", content: "Definitely include that. Particularly if you have experience in a similar industry or field - that will be good for any potential future employers to know!")
+assistant_message31 = Message.new(role: "assistant", content: "Definitely include that. Particularly if you have experience in a similar industry or field - that will be good for any potential future employers to know!", input_tokens: 0)
 assistant_message31.chat = chat7
 assistant_message31.save!
-user_message32 = Message.new(role: "user", content: "Is there anything else I should add?")
+user_message32 = Message.new(role: "user", content: "Is there anything else I should add?", input_tokens: 0)
 user_message32.chat = chat7
 user_message32.save!
-assistant_message32 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of KPIs or targets met. That is something that companies love to see.")
+assistant_message32 = Message.new(role: "assistant", content: "The more detail the better - especially if you can add numbers of KPIs or targets met. That is something that companies love to see.", input_tokens: 0)
 assistant_message32.chat = chat7
 assistant_message32.save!
 
@@ -318,42 +318,44 @@ chat8.user = user
 chat8.title = "Business development executive application"
 chat8.save!
 
-user_message33 = Message.new(role: "user", content: "I want to make sure that my CV is as tailored as possible.")
+user_message33 = Message.new(role: "user", content: "I want to make sure that my CV is as tailored as possible.", input_tokens: 0)
 user_message33.chat = chat8
 user_message33.save!
-assistant_message33 = Message.new(role: "assistant", content: "The most important thing is whether you have any similar experience to this role? Including any experience like this is relevant and important.")
+assistant_message33 = Message.new(role: "assistant", content: "The most important thing is whether you have any similar experience to this role? Including any experience like this is relevant and important.", input_tokens: 0)
 assistant_message33.chat = chat8
 assistant_message33.save!
-user_message34 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?")
+user_message34 = Message.new(role: "user", content: "Should I add all my work experience from when I was a teenager?", input_tokens: 0)
 user_message34.chat = chat8
 user_message34.save!
-assistant_message34 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.")
+assistant_message34 = Message.new(role: "assistant", content: "Start with the most recent and the most relevant work experience. That should take up most of the space, and then you can see how much space you have left for additional tasks. Anything that provided you with relevant skills for this job will be useful to include.", input_tokens: 0)
 assistant_message34.chat = chat8
 assistant_message34.save!
-user_message35 = Message.new(role: "user", content: "Shall I let them know that I used to work as a sales executive for a SaaS company?")
+user_message35 = Message.new(role: "user", content: "Shall I let them know that I used to work as a sales executive for a SaaS company?", input_tokens: 0)
 user_message35.chat = chat8
 user_message35.save!
-assistant_message35 = Message.new(role: "assistant", content: "Yes! That's extremely relevant. I recommend adding more information about that and making sure that you've shared your past responsibilities in your role and your achievements.")
+assistant_message35 = Message.new(role: "assistant", content: "Yes! That's extremely relevant. I recommend adding more information about that and making sure that you've shared your past responsibilities in your role and your achievements.", input_tokens: 0)
 assistant_message35.chat = chat8
 assistant_message35.save!
-user_message36 = Message.new(role: "user", content: "What else do you think I could add?")
+user_message36 = Message.new(role: "user", content: "What else do you think I could add?", input_tokens: 0)
 user_message36.chat = chat8
 user_message36.save!
-assistant_message36 = Message.new(role: "assistant", content: "Have you attended any networking events or do you have experience in networking? This is good to include too.")
+assistant_message36 = Message.new(role: "assistant", content: "Have you attended any networking events or do you have experience in networking? This is good to include too.", input_tokens: 0)
 assistant_message36.chat = chat8
 assistant_message36.save!
-user_message37 = Message.new(role: "user", content: "Is there anything else I should add?")
+user_message37 = Message.new(role: "user", content: "Is there anything else I should add?", input_tokens: 0)
 user_message37.chat = chat8
 user_message37.save!
-assistant_message37 = Message.new(role: "assistant", content: "The job spec mentinos relationship building, if there is anything that you can include on this that would be really helpful. For example whether you have long-term client relationship building experience, or if you have any experience in building partnerships.")
+assistant_message37 = Message.new(role: "assistant", content: "The job spec mentinos relationship building, if there is anything that you can include on this that would be really helpful. For example whether you have long-term client relationship building experience, or if you have any experience in building partnerships.", input_tokens: 0)
 assistant_message37.chat = chat8
 assistant_message37.save!
 
+puts "Done! DB Seeding successful :)"
+
 # 5.times do
-#   user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
+#   user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.", input_tokens: 0)
 #   user_message.chat = chat
 #   user_message.save!
-#   assistant_message = Message.new(role: "assistant", content: "Nah, it's a good start. The main tip is.")
+#   assistant_message = Message.new(role: "assistant", content: "Nah, it's a good start. The main tip is.", input_tokens: 0)
 #   assistant_message.chat = chat
 #   assistant_message.save!
 # end
