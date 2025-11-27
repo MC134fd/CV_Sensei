@@ -1,17 +1,19 @@
 <div class="container text-center my-5">
   <h1 class="mb-4">Time to sensei your CV</h1>
-  <%= link_to "Add a new CV", new_cv_path, class: "btn btn-primary"%>
+  <%= link_to "+ Add a new CV", new_cv_path, class: "btn btn-primary mb-4"%>
 
-  <div id="cvs-container" class="row my-3 justify-content-center">
-    <div class="col-8">
+    <div class="row justify-content-center cv-container">
       <% current_user.cvs.each do |cv| %>
-        <%= link_to cv_path(cv) do %>
-          <div class="mb-2 p-3 bg-primary bg-opacity-10 border border-primary rounded text-center">
-            <h4 class="mb-0"><%= cv.title %></h4>
+        <div class="cvcard m-2">
+          <%= link_to cv_path(cv) do %>
+            <h4><%= cv.title %></h4>
+          <% end %>
+            <div class="cvcardbin">
+              <%= link_to cv_path(cv), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this CV?" }, class: "btn btn-primary" do %>
+                <i class="fa-solid fa-trash"></i>
+              <% end %>
+            </div>
           </div>
-        <% end %>
-        <%= link_to "Delete a CV", cv_path(cv), data: { turbo_method: :delete }, class: "btn btn-primary"%>
       <% end %>
     </div>
   </div>
-</div>

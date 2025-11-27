@@ -1,0 +1,30 @@
+.cvcard {
+  margin-top: 5px;
+  display: flex-auto;
+  flex-wrap: wrap;
+  // position: absolute;
+  justify-content: space-between;
+  align-items: center;
+  background: $orange-400;
+  padding: 20px;
+  border: 1.5px solid $orange-700;
+  text-align: center;
+  border-radius: 7px;
+  box-shadow: 2px 2px 1px;
+  height: 150px;
+  width: 150px;
+}
+
+.cvcard a {
+  color: $background-dark;
+  font-size: 18px;
+
+     &:hover {
+    color: white;
+    }
+  }
+
+// .cvcardbin {
+//   position: relative;
+//   top: 20px;
+// }
