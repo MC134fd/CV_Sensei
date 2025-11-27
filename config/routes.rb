@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   # get "cvs/:id", to: "cvs#show", as: :cv
   # get "cvs/new", to: "cvs#new"
   # post "cvs", to: "cvs#create"
-  resources :cvs, only: [:index, :new, :create, :show, :destroy] do
+  resources :cvs, only: [:index, :new, :create, :update, :show, :destroy] do
     resources :chats, only: [:create]
   end
 
