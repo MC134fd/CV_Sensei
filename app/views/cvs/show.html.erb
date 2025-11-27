@@ -33,6 +33,17 @@
           </div>
         </div>
 
+  <div class="container mt-5">
+    <div class="row justify-content-start ps-5">
+      <div class="col-md-10">
+        <h2 class="mb-4">What we have so far:</h2>
+        <p>Title: <%= @cv.title %></p>
+
+          <%= simple_form_for(@cv, html: { class: "cv-form", turbo_method: :patch }) do |f| %>
+            <%= f.input :content, required: true %>
+            <%= f.submit "Update CV", class: "btn btn d-block mx-auto mt-4" %>
+          <% end %>
+
       </div>
     </div>
 
