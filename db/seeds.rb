@@ -54,8 +54,8 @@ chat1.save!
 user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
 user_message.chat = chat1
 user_message.save!
-assistant_message.chat = chat1
 assistant_message = Message.new(role: "assistant", content: "It's good, it just needs more of ... ")
+assistant_message.chat = chat1
 assistant_message.save!
 user_message1 = Message.new(role: "user", content: "How about if I talk a bit more about my experience in Ruby?")
 user_message1.chat = chat1
