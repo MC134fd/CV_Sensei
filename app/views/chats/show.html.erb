@@ -1,13 +1,13 @@
 <div class="container-fluid">
   <%# The row of the page %>
-  <div class="row">
+  <div class="row" data-controller="toggle">
     <%# The columns of the page %>
 
-    <div class="col-md-2 vh-100 sticky-top pt-3" data-controller="toggle">
+    <div class="col-md-1 vh-100 sticky-top pt-3" data-toggle-target="sidebarCol">
 
       <%# The open sidebar button %>
       <div id="chats-side-bar-open">
-        <i class="fa-solid fa-list-ul btn" data-action="click->toggle#open" data-toggle-target="openSidebar"></i>
+        <i class="fa-solid fa-list-ul btn" data-action="click->toggle#openSidebar" data-toggle-target="openSidebarButton"></i>
       </div>
 
       <%# The sidebar %>
@@ -15,7 +15,7 @@
 
         <%# The close sidebar button %>
         <div class="off-canvas-header">
-          <button class="btn-close" data-action="click->toggle#close"></button>
+          <button class="btn-close" data-action="click->toggle#closeSidebar"></button>
           <h5 class="off-canvas-title">Your chats</h5>
         </div>
 
@@ -36,7 +36,7 @@
       </div>
     </div>
 
-    <div class="col-md-10 sticky-top" style="top:70px;">
+    <div class="col-md-11 sticky-top" style="top:70px;" data-toggle-target="contentCol">
       <%# The page content goes here %>
 
       <h1 class="text-center">Let's get tailoring!</h1>
