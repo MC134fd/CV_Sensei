@@ -1,0 +1,32 @@
+<div class="col-md-1 vh-100 sticky-top pt-3" data-toggle-target="sidebarCol">
+
+  <%# The open sidebar button %>
+  <div id="chats-side-bar-open">
+    <i class="fa-solid fa-list-ul btn btn-primary btn-lg" data-action="click->toggle#openSidebar" data-toggle-target="openSidebarButton"></i>
+  </div>
+
+  <%# The sidebar %>
+  <div class="off-canvas off-canvas-start d-none" id="chats-side-bar" data-toggle-target="sidebar">
+
+    <%# The close sidebar button %>
+    <div class="off-canvas-header d-flex justify-content-between mb-3">
+      <h5 class="off-canvas-title">Your chats</h5>
+      <button class="btn-close" data-action="click->toggle#closeSidebar"></button>
+    </div>
+
+    <%# The sidebar body %>
+    <div class="off-canvas-body">
+      <ul class="list-group list-group-flush mb-3">
+        <% chats.each do |chat| %>
+          <li class="list-group-item">
+            <%= link_to chat.title, chat_path(chat) %>
+          <% end %>
+        </li>
+      </ul>
+      <div class="off-canvas-header">
+        <%= link_to "Create a New Chat", cv_path(cv), class: "btn btn-primary" %>
+      </div>
+    </div>
+
+  </div>
+</div>
