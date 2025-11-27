@@ -11,7 +11,6 @@ class MessagesController < ApplicationController
     # linking the message chat_id to chat.id so the message knows wwhic chat it belongs to
     @message = @chat.messages.new(message_params)
     @message.chat = @chat
-
     # so that the user knows the message is made by a user
     @message.role = "user"
 
@@ -19,7 +18,7 @@ class MessagesController < ApplicationController
       # call LLM with system prompt engineering n context
       cv_chat = RubyLLM.chat
       response = cv_chat.with_instructions(instructions).ask(@message.content)
-
+      @message.input_tokens = response.input_tokens
       # assistant reply message
       @chat.messages.create!(
         role: "assistant",
@@ -31,6 +30,8 @@ class MessagesController < ApplicationController
       # re-render the chat page with errors
       # @cv = @chat.cv ---------------------- AS A LATER FEATURE?
       @messages = @chat.messages.order(:created_at)
+      @chats = @chat.cv.chats
+      @cv = @chat.cv
       render "chats/show", status: :unprocessable_entity
     end
   end

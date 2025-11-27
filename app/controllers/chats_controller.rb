@@ -30,7 +30,7 @@ class ChatsController < ApplicationController
         # call LLM with system prompt engineering n context
         cv_chat = RubyLLM.chat
         response = cv_chat.with_instructions(CV_PROMPT).ask(@first_message.content)
-
+        @first_message.input_tokens = response.input_tokens
         # assistant reply message
         @chat.messages.create!(
           role: "assistant",
