@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
       redirect_to chat_path(@chat)
     else
       # re-render the chat page with errors
-      # @cv = @chat.cv ---------------------- AS A LATER FEATURE?
+      @cv = @chat.cv
       @messages = @chat.messages.order(:created_at)
       render "chats/show", status: :unprocessable_entity
     end
@@ -50,13 +50,13 @@ class MessagesController < ApplicationController
 
   # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
   def instructions
-    # cv = @chat.cv ---------------------- AS A LATER FEATURE?
+    @cv = @chat.cv
 
     [
       CV_PROMPT,
       "Job title: #{@chat.job_title}",
       "Job description: #{@chat.job_description}",
-      "Current CV:\n#{cv.content}"
+      "Current CV: #{@cv.content}"
     ].join("\n\n")
   end
 end
