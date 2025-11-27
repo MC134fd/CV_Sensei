@@ -6,7 +6,8 @@ export default class extends Controller {
 
   call(event) {
     event.preventDefault();
-    this.sidebarTarget.classList.toggle("d-none")
-    this.openSidebarTarget.classList.toggle("d-none")
+    this.sidebarTarget.classList.toggle("d-none");
+    this.openSidebarTarget.classList.toggle("d-none");
+    this.element.classList.toggle("border-end");
   }
 }
