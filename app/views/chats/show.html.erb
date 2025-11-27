@@ -7,16 +7,16 @@
 
       <%# The open sidebar button %>
       <div id="chats-side-bar-open">
-        <i class="fa-solid fa-list-ul btn" data-action="click->toggle#openSidebar" data-toggle-target="openSidebarButton"></i>
+        <i class="fa-solid fa-list-ul btn btn-primary btn-lg" data-action="click->toggle#openSidebar" data-toggle-target="openSidebarButton"></i>
       </div>
 
       <%# The sidebar %>
-      <div class="off-canvas off-canvas-start vh-100 d-none" id="chats-side-bar" data-toggle-target="sidebar">
+      <div class="off-canvas off-canvas-start d-none" id="chats-side-bar" data-toggle-target="sidebar">
 
         <%# The close sidebar button %>
-        <div class="off-canvas-header">
-          <button class="btn-close" data-action="click->toggle#closeSidebar"></button>
+        <div class="off-canvas-header d-flex justify-content-between mb-3">
           <h5 class="off-canvas-title">Your chats</h5>
+          <button class="btn-close" data-action="click->toggle#closeSidebar"></button>
         </div>
 
         <%# The sidebar body %>
@@ -70,6 +70,11 @@
               <%= form.submit class: "btn btn-primary" %>
             <% end %>
           </div>
+          <h1>Some more content</h1>
+          <h1>Some more content</h1>
+          <h1>Some more content</h1>
+          <h1>Some more content</h1>
+          <h1>Some more content</h1>
         </div>
       </div>
 
