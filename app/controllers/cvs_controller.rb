@@ -21,6 +21,12 @@ class CvsController < ApplicationController
     @chat = Chat.new
   end
 
+  def destroy
+    @cv = Cv.find(params[:id])
+    @cv.destroy
+    redirect_to cvs_path, status: :see_other
+  end
+
   private
 
   def cv_params
