@@ -55,8 +55,8 @@ class MessagesController < ApplicationController
     [
       CV_PROMPT,
       "Job title: #{@chat.job_title}",
-      "Job description: #{@chat.job_description}"
-      # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
+      "Job description: #{@chat.job_description}",
+      "Current CV:\n#{cv.content}"
     ].join("\n\n")
   end
 end
