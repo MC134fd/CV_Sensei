@@ -1,14 +1,25 @@
 <div class="container-fluid">
+  <%# The row of the page %>
   <div class="row">
+    <%# The columns of the page %>
+
     <div class="col-md-2 vh-100 sticky-top pt-3" data-controller="toggle">
+
+      <%# The open sidebar button %>
       <div id="chats-side-bar-open">
         <i class="fa-solid fa-list-ul btn" data-action="click->toggle#call" data-toggle-target="openSidebar"></i>
       </div>
+
+      <%# The sidebar %>
       <div class="off-canvas off-canvas-start vh-100 d-none" id="chats-side-bar" data-toggle-target="sidebar">
+
+        <%# The close sidebar button %>
         <div class="off-canvas-header">
           <button class="btn-close" data-action="click->toggle#call"></button>
           <h5 class="off-canvas-title">Your chats</h5>
         </div>
+
+        <%# The sidebar body %>
         <div class="off-canvas-body">
           <ul class="list-group list-group-flush mb-3">
             <% @chats.each do |chat| %>
@@ -17,63 +28,52 @@
               <% end %>
             </li>
           </ul>
-
           <div class="off-canvas-header">
             <%= link_to "Create a New Chat", cv_path(@cv), class: "btn btn-primary" %>
           </div>
         </div>
+
       </div>
     </div>
+
     <div class="col-md-10 sticky-top" style="top:70px;">
       <%# The page content goes here %>
 
+      <h1 class="text-center">Let's get tailoring!</h1>
 
-      <h1 class="row justify-content-center">Let's get tailoring!</h1>
-
-      <div class="d-flex align-items-start main-container mt-5">
-
-        <div class="container mt-5">
-          <div class="row justify-content-start ps-5">
-            <div class="col-md-10">
-              <h2 class="mb-4">What we have so far:</h2>
-              <p>Title: <%= @cv.title %></p>
-              <p>Content: <%= @cv.content %></p>
-            </div>
+      <div class="row">
+        <div class="col-6">
+          <h2 class="mb-4">What we have so far:</h2>
+          <p>Title: <%= @cv.title %></p>
+          <p>Content: <%= @cv.content %></p>
+        </div>
+        <div class="col-6">
+          <h1><%= @chat.title %></h1>
+          <h3>Your messages</h3>
+          <div class="list-group">
+            <% @messages.each do |m| %>
+              <% if m.role == "user" %>
+                <div class="list-group-item px-5 text-start">
+                  <%= m.content %>
+                </div>
+              <% else %>
+                <div class="row justify-content-center">
+                  <%= m.content %>
+                </div>
+              <% end %>
+            <% end %>
+          </div>
+          <h3>Create a new message</h3>
+          <div class="form-inputs" data-bs-theme="light">
+            <%= simple_form_for [@chat, @message] do |form| %>
+              <%= form.input :content %>
+              <%= form.submit class: "btn btn-primary" %>
+            <% end %>
           </div>
         </div>
-
-        <div class="container mt-5">
-          <div class="row justify-content-center">
-            <div class="col-md-9">
-
-
-              <h1><%= @chat.title %></h1>
-
-              <h3>Your messages</h3>
-              <div class="list-group">
-                <% @messages.each do |m| %>
-                  <% if m.role == "user" %>
-                    <div class="list-group-item px-5 text-start">
-                      <%= m.content %>
-                    </div>
-                  <% else %>
-                    <div class="row justify-content-center">
-                      <%= m.content %>
-                    </div>
-                  <% end %>
-                <% end %>
-              </div>
-
-              <h3>Create a new message</h3>
-              <div class="form-inputs" data-bs-theme="light">
-                <%= simple_form_for [@chat, @message] do |form| %>
-                  <%= form.input :content %>
-                  <%= form.submit class: "btn btn-primary" %>
-                <% end %>
-              </div>
-
-            </div>
-          </div>
-        </div>
-
       </div>
+
+    </div>
+
+  </div>
+</div>
