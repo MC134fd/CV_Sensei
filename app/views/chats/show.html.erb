@@ -12,10 +12,15 @@
       <h1 class="text-center">Let's get tailoring!</h1>
 
       <div class="row">
-        <div class="col-6">
+        <div class="col-5">
           <h2 class="mb-4">What we have so far:</h2>
           <p>Title: <%= @cv.title %></p>
-          <p>Content: <%= @cv.content %></p>
+
+            <%= simple_form_for(@cv, html: { class: "cv-form", turbo_method: :patch }) do |f| %>
+              <%= f.input :content, required: true %>
+              <%= f.submit "Update CV", class: "btn btn primary" %>
+            <% end %>
+
         </div>
         <div class="col-6">
           <h1><%= @chat.title %></h1>
