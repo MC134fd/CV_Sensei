@@ -41,20 +41,26 @@
       <h1 class="row justify-content-center">Let's get tailoring!</h1>
 
       <div class="row">
-        <div class="col-6 mt-5">
-          <h2 class="mb-4">What we have so far:</h2>
-          <p>Title: <%= @cv.title %></p>
-          <p>Content: <%= @cv.content %></p>
-        </div>
-        <div class="col-6 mt-5">
-          <h2 class="mb-4">What role are you applying for? </h2>
-          <div class="form-inputs" data-bs-theme="light">
-            <%= simple_form_for [@cv, @chat] do |form| %>
-              <%= form.input :job_title, required: true %>
-              <%= form.input :job_description %>
-              <%= form.submit class: "btn btn d-block mx-auto mt-4" %>
-            <% end %>
+        <div class="col-11">
+
+          <div class="row">
+            <div class="col-6 mt-5">
+              <h2 class="mb-4">What we have so far:</h2>
+              <p>Title: <%= @cv.title %></p>
+              <p>Content: <%= @cv.content %></p>
+            </div>
+            <div class="col-6 mt-5">
+              <h2 class="mb-4">What role are you applying for? </h2>
+              <div class="form-inputs" data-bs-theme="light">
+                <%= simple_form_for [@cv, @chat] do |form| %>
+                  <%= form.input :job_title, required: true %>
+                  <%= form.input :job_description %>
+                  <%= form.submit class: "btn btn d-block mx-auto mt-4" %>
+                <% end %>
+              </div>
+            </div>
           </div>
+
         </div>
       </div>
 
