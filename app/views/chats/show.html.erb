@@ -1,6 +1,6 @@
 <div class="container-fluid">
   <div class="row">
-    <div class="col-md-2 vh-100 sticky-top" style="top:65px;" data-controller="toggle">
+    <div class="col-md-2 vh-100 sticky-top pt-3" data-controller="toggle">
       <div id="chats-side-bar-open">
         <i class="fa-solid fa-list-ul btn" data-action="click->toggle#call" data-toggle-target="openSidebar"></i>
       </div>
@@ -13,7 +13,7 @@
           <ul class="list-group list-group-flush mb-3">
             <% @chats.each do |chat| %>
               <li class="list-group-item">
-                <%= chat.title %>
+                <%= link_to chat.title, chat_path(chat) %>
               <% end %>
             </li>
           </ul>
