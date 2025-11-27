@@ -17,9 +17,9 @@ class MessagesController < ApplicationController
 
     if @message.save
       # call LLM with system prompt engineering n context
-      cv_chat = RubyLLM.chat
+      @cv_chat = RubyLLM.chat
       build_conversation_history
-      response = cv_chat.with_instructions(instructions).ask(@message.content)
+      response = @cv_chat.with_instructions(instructions).ask(@message.content)
 
       # assistant reply message
       @chat.messages.create!(
@@ -52,7 +52,7 @@ class MessagesController < ApplicationController
 
   # only allow the content field from the form
   def message_params
-    params.require(:message).permit(:content)
+    params.require(:message).permit(:content, :file)
   end
 
   # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)

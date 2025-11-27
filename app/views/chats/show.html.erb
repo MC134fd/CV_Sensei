@@ -67,6 +67,7 @@
           <div class="form-inputs" data-bs-theme="light">
             <%= simple_form_for [@chat, @message] do |form| %>
               <%= form.input :content %>
+              <%= form.input, as: :file, label: "Upload a file (PDF, image, or audio)" %>
               <%= form.submit class: "btn btn-primary" %>
             <% end %>
           </div>
