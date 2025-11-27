@@ -54,6 +54,10 @@ gem "devise"
 # added to remove the warning
 gem "ostruct"
 
+gem "kramdown"
+gem "kramdown-parser-gfm"
+gem "rouge"
+
 group :development, :test do
   gem "dotenv-rails"
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
