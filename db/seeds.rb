@@ -47,7 +47,7 @@ puts "Creating chat 1..."
 #CV / CHAT1 / USER_MESSAGE, USER_MESSAGE1, USER_MESSAGE2, USER_MESSAGE3, USER_MESSAGE4
 chat1 = Chat.new(job_title: "Back-end Software Developer", job_description: "Develop and maintain server-side logic: Write code that handles the application's core functions, user input, and data processing.
 Manage databases: Design, implement, and maintain databases that store and manage application data.
-Create APIs: Build Application Programming Interfaces (APIs) to allow the front-end, back-end, and external services to communicate with each other.")
+Create APIs: Build Application Programming Interfaces (APIs) to allow the front-end, back-end, and external services to communicate with each other.", input_count: 1)
 chat1.cv = cv
 chat1.user = user
 chat1.title = " Back-end software developer"
@@ -86,7 +86,7 @@ assistant_message4.save!
 puts "Creating chat 2..."
 #CV / CHAT2 / USER_MESSAGE5, USER_MESSAGE6, USER_MESSAGE7, USER_MESSAGE8, USER_MESSAGE9
 
-chat2 = Chat.new(job_title: "Full-stack Ruby Developer", job_description: "A Full Stack Ruby Developer job involves building and maintaining web applications using the Ruby on Rails framework, handling both front-end and back-end development tasks. Responsibilities include writing clean Ruby and JavaScript code, integrating databases, developing APIs, creating responsive user interfaces, ensuring application performance, and collaborating with cross-functional teams throughout the development lifecycle.")
+chat2 = Chat.new(job_title: "Full-stack Ruby Developer", job_description: "A Full Stack Ruby Developer job involves building and maintaining web applications using the Ruby on Rails framework, handling both front-end and back-end development tasks. Responsibilities include writing clean Ruby and JavaScript code, integrating databases, developing APIs, creating responsive user interfaces, ensuring application performance, and collaborating with cross-functional teams throughout the development lifecycle.", input_count: 1)
 chat2.cv = cv
 chat2.user = user
 chat2.title = "Developer (Ruby: full-stack)"
@@ -110,7 +110,7 @@ user_message7.save!
 assistant_message7 = Message.new(role: "assistant", content: "Definitely, JavaScript is mentioned in the job description so do add that.")
 assistant_message7.chat = chat2
 assistant_message7.save!
-user_message8 = Message.new(role: "user", content: "Thank you")
+user_message8 = Message.new(role: "user", content: "Thank you!")
 user_message8.chat = chat2
 user_message8.save!
 assistant_message8 = Message.new(role: "assistant", content: "No problem!")
@@ -120,7 +120,7 @@ assistant_message8.save!
 puts "Creating chat 3..."
 #CV / CHAT3 / USER_MESSAGE9, USER_MESSAGE10, USER_MESSAGE11, USER_MESSAGE12, USER_MESSAGE13
 
-chat3 = Chat.new(job_title: "Junior Front-End Dev", job_description: "A junior front-end developer's job description involves coding and maintaining websites and web applications, collaborating with senior developers and designers, and implementing user interfaces based on signed-off designs. Key responsibilities include writing clean HTML, CSS, and JavaScript, ensuring web standards and accessibility, and learning new technologies like frameworks (e.g., React, Vue) and RESTful APIs under the guidance of senior staff.")
+chat3 = Chat.new(job_title: "Junior Front-End Dev", job_description: "A junior front-end developer's job description involves coding and maintaining websites and web applications, collaborating with senior developers and designers, and implementing user interfaces based on signed-off designs. Key responsibilities include writing clean HTML, CSS, and JavaScript, ensuring web standards and accessibility, and learning new technologies like frameworks (e.g., React, Vue) and RESTful APIs under the guidance of senior staff.", input_count: 1)
 chat3.cv = cv
 chat3.user = user
 chat3.title = "Junior level engineer"
@@ -153,7 +153,7 @@ assistant_message12.save!
 
 puts "Creating chat 4..."
 #CV1 / CHAT4 / USER_MESSAGE13, USER_MESSAGE14, USER_MESSAGE15, USER_MESSAGE16, USER_MESSAGE17
-chat4 = Chat.new(job_title: "Marketing Manager", job_description: "A marketing manager is responsible for developing and implementing marketing strategies to promote a brand or product, which includes market research, campaign planning, budget management, and team leadership.")
+chat4 = Chat.new(job_title: "Marketing Manager", job_description: "A marketing manager is responsible for developing and implementing marketing strategies to promote a brand or product, which includes market research, campaign planning, budget management, and team leadership.", input_count: 1)
 chat4.cv = cv1
 chat4.user = user
 chat4.title = "Marketing manager role application"
@@ -192,7 +192,7 @@ assistant_message17.save!
 
 puts "Creating chat 5..."
 #CV1 / CHAT5 / USER_MESSAGE18, USER_MESSAGE19, USER_MESSAGE20, USER_MESSAGE21, USER_MESSAGE22
-chat5 = Chat.new(job_title: "Event Marketing Manager", job_description: "An Event Marketing Manager plans, organizes, and executes events like conferences and trade shows to support marketing and business goals, such as brand awareness, lead generation, and pipeline growth. Key responsibilities include developing event strategies, managing budgets and timelines, coordinating with vendors, promoting events across multiple channels, and analyzing performance to measure return on investment (ROI). This role requires strong project management, communication, and organizational skills, as well as creativity and a strategic marketing mindset.")
+chat5 = Chat.new(job_title: "Event Marketing Manager", job_description: "An Event Marketing Manager plans, organizes, and executes events like conferences and trade shows to support marketing and business goals, such as brand awareness, lead generation, and pipeline growth. Key responsibilities include developing event strategies, managing budgets and timelines, coordinating with vendors, promoting events across multiple channels, and analyzing performance to measure return on investment (ROI). This role requires strong project management, communication, and organizational skills, as well as creativity and a strategic marketing mindset.", input_count: 1)
 chat5.cv = cv1
 chat5.user = user
 chat5.title = "Event marketing manager resume"
@@ -233,7 +233,7 @@ puts "Creating chat 6..."
 #CV2 / CHAT6 / USER_MESSAGE23, USER_MESSAGE24, USER_MESSAGE25, USER_MESSAGE26, USER_MESSAGE27
 chat6 = Chat.new(job_title: "Product Manager", job_description: "Product strategy and vision: Develop and maintain the product vision and strategy, aligning it with business objectives and market opportunities.
 Roadmap and backlog management: Create and prioritize the product roadmap and backlog, ensuring the development team is focused on the most valuable features and tasks.
-Cross-functional collaboration: Work closely with a multidisciplinary team, including engineers, designers, marketers, and executives, to guide the product's development and launch.")
+Cross-functional collaboration: Work closely with a multidisciplinary team, including engineers, designers, marketers, and executives, to guide the product's development and launch.", input_count: 1)
 chat6.cv = cv2
 chat6.user = user
 chat6.title = "Product strategy manager"
@@ -272,7 +272,7 @@ assistant_message27.save!
 
 puts "Creating chat 7..."
 #CV2 / CHAT7 / USER_MESSAGE28, USER_MESSAGE29, USER_MESSAGE30, USER_MESSAGE31, USER_MESSAGE32
-chat7 = Chat.new(job_title: "Product Marketing Manager", job_description: "A Product Marketing Manager (PMM) is responsible for bringing a product to market by defining its positioning, messaging, and go-to-market strategy. Key duties include conducting market and competitor research, developing launch plans, creating sales and marketing collateral, and working with product, sales, and marketing teams to ensure the product's commercial success. The role is at the intersection of product, sales, and marketing, with a focus on telling the product's story and converting audiences into loyal customers.")
+chat7 = Chat.new(job_title: "Product Marketing Manager", job_description: "A Product Marketing Manager (PMM) is responsible for bringing a product to market by defining its positioning, messaging, and go-to-market strategy. Key duties include conducting market and competitor research, developing launch plans, creating sales and marketing collateral, and working with product, sales, and marketing teams to ensure the product's commercial success. The role is at the intersection of product, sales, and marketing, with a focus on telling the product's story and converting audiences into loyal customers.", input_count: 1)
 chat7.cv = cv2
 chat7.user = user
 chat7.title = "Experienced product marketing manager"
@@ -313,7 +313,7 @@ puts "Creating chat 8..."
 #CV2 / CHAT8 / USER_MESSAGE33, USER_MESSAGE34, USER_MESSAGE35, USER_MESSAGE36, USER_MESSAGE37
 chat8 = Chat.new(job_title: "Business Development Manager", job_description: "Identify new business opportunities: Researching organizations and markets to find potential clients and new revenue streams.
 Generate leads: Using methods like cold calling, networking, and attending events to find and qualify new prospects.
-Build and maintain relationships: Cultivating strong, long-term relationships with clients, partners, and other stakeholders.")
+Build and maintain relationships: Cultivating strong, long-term relationships with clients, partners, and other stakeholders.", input_count: 1)
 chat8.cv = cv2
 chat8.user = user
 chat8.title = "Business development executive application"
@@ -349,6 +349,8 @@ user_message37.save!
 assistant_message37 = Message.new(role: "assistant", content: "The job spec mentinos relationship building, if there is anything that you can include on this that would be really helpful. For example whether you have long-term client relationship building experience, or if you have any experience in building partnerships.")
 assistant_message37.chat = chat8
 assistant_message37.save!
+
+puts "Done! DB Seeding successful :)"
 
 # 5.times do
 #   user_message = Message.new(role: "user", content: "Well I don't know but it isn't as great as it should be. I don't know. It needs more.")
