@@ -56,7 +56,7 @@ class ChatsController < ApplicationController
     @chat = Chat.find(params[:id])
     @chat.destroy
     # redirect_to chats_path, status: :see_other
-    redirect_back fallback_location: cv_path(@chat.cv), status: :see_other
+    redirect_to cv_path(@chat.cv), status: :see_other
   end
 
   private
