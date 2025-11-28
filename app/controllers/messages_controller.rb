@@ -11,26 +11,25 @@ class MessagesController < ApplicationController
     # linking the message chat_id to chat.id so the message knows wwhic chat it belongs to
     @message = @chat.messages.new(message_params)
     @message.chat = @chat
-
     # so that the user knows the message is made by a user
     @message.role = "user"
-
     if @message.save
       # call LLM with system prompt engineering n context
-      cv_chat = RubyLLM.chat
-      response = cv_chat.with_instructions(instructions).ask(@message.content)
-
+      @cv_chat = RubyLLM.chat
+      build_conversation_history
+      response = @cv_chat.with_instructions(instructions).ask(@message.content)
+      @chat.update(input_count: response.input_tokens)
       # assistant reply message
       @chat.messages.create!(
         role: "assistant",
         content: response.content
       )
-
       redirect_to chat_path(@chat)
     else
       # re-render the chat page with errors
       @cv = @chat.cv
       @messages = @chat.messages.order(:created_at)
+      @chats = @chat.cv.chats
       render "chats/show", status: :unprocessable_entity
     end
   end
@@ -50,13 +49,17 @@ class MessagesController < ApplicationController
 
   # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
   def instructions
-    @cv = @chat.cv
-
     [
       CV_PROMPT,
       "Job title: #{@chat.job_title}",
       "Job description: #{@chat.job_description}",
-      "Current CV: #{@cv.content}"
+      "My current CV:\n#{@chat.cv.content}"
     ].join("\n\n")
+  end
+
+  def build_conversation_history
+    @chat.messages.each do |message|
+      @cv_chat.add_message(message)
+    end
   end
 end
