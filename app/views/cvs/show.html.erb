@@ -17,10 +17,11 @@
             <div class="col-6 mt-5">
               <h2 class="mb-4">What we have so far:</h2>
               <%= simple_form_for(@cv, html: { class: "cv-form" }) do |f| %>
-                <%= f.input :title, required: true%>
-                <%= f.input :content, required: true %>
+                <%= f.input :title, required: true %>
+                <%= f.input :content, required: true, input_html: { class: "auto-expand", rows: 18 } %>
                 <%= f.submit "Update CV", class: "btn btn-primary d-block mx-auto mt-4" %>
               <% end %>
+
             </div>
             <div class="col-6 mt-5">
               <h2 class="mb-4">What role are you applying for? </h2>
