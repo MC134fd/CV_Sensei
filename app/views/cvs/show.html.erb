@@ -16,10 +16,10 @@
           <div class="row">
             <div class="col-6 mt-5">
               <h2 class="mb-4">What we have so far:</h2>
-              <p>Title: <%= @cv.title %></p>
-              <%= simple_form_for(@cv, html: { class: "cv-form", turbo_method: :patch }) do |f| %>
+              <%= simple_form_for(@cv, html: { class: "cv-form" }) do |f| %>
+                <%= f.input :title, required: true%>
                 <%= f.input :content, required: true %>
-                <%= f.submit "Update CV", class: "btn btn primary" %>
+                <%= f.submit "Update CV", class: "btn btn d-block mx-auto mt-4" %>
               <% end %>
             </div>
             <div class="col-6 mt-5">
