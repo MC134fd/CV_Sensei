@@ -1,9 +1,9 @@
 .btn {
-  background-color: $button-color;
-  border-color: $button-color;
+  background-color: $orange;
+  border-color: $orange;
 
    &:hover {
-    background-color: $button-hover;
-    border-color: $button-hover;
+    background-color: $dark_orange;
+    border-color: $dark_orange;
   }
 }
