@@ -29,7 +29,7 @@ class MessagesController < ApplicationController
         # @cv = @chat.cv ---------------------- AS A LATER FEATURE?
         # The else branch renders the show page without going through ChatsController#show, so you must manually set @chats, otherwise the view receives nil and .each fails.
         @cv = @chat.cv
-        @chats = Chat.order(created_at: :desc)
+        @chats = @cv.chats
         @messages = @chat.messages.order(:created_at)
         render "chats/show", status: :unprocessable_entity
     end
@@ -37,27 +37,18 @@ class MessagesController < ApplicationController
 
   private
 
-  def process_file(file)
-    # adding if else logic do that once it detects the pdf or image it gets directed to the specific model
-    if file.content_type == "application/pdf"
-      send_question(model: "gemini-2.0-flash", with: { pdf: @message.file.url })
-    elsif file.image?
-      send_question(model: "gpt-4o", with: { image: @message.file.url})
-    end
+  # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
+  def instructions
+    # cv = @chat.cv ---------------------- AS A LATER FEATURE?
+
+    [
+      CV_PROMPT,
+      "Job title: #{@chat.job_title}",
+      "Job description: #{@chat.job_description}"
+      # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
+    ].join("\n\n")
   end
 
-  def send_question(model: "gpt-4o-mini", with: {})
-    # sending request to chat with llm
-      @cv_chat = RubyLLM.chat(model: model)
-      build_conversation_history
-      response = @cv_chat.with_instructions(instructions).ask(@message.content, with: with)
-
-      # assitant reply message
-      @chat.messages.create!(
-        role: "assistant",
-        content: response.content
-      )
-  end
 
   def build_conversation_history
     @chat.messages.each do |message|
@@ -76,15 +67,29 @@ class MessagesController < ApplicationController
     params.require(:message).permit(:content, :file)
   end
 
-  # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
-  def instructions
-    # cv = @chat.cv ---------------------- AS A LATER FEATURE?
+  def process_file(file)
+    # adding if else logic do that once it detects the pdf or image it gets directed to the specific model
+    # file_url = url_for(file)
+    if file.content_type == "application/pdf"
+      send_question(model: "gemini-2.0-flash", with: { pdf: @message.file.url })
+    elsif file.image?
+      send_question(model: "gpt-4o", with: { image: @message.file.url })
+    end
+  end
 
-    [
-      CV_PROMPT,
-      "Job title: #{@chat.job_title}",
-      "Job description: #{@chat.job_description}"
-      # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
-    ].join("\n\n")
+  def send_question(model: "gpt-4o-mini", with: {})
+    # sending request to chat with llm
+      @cv_chat = RubyLLM.chat(model: model)
+      build_conversation_history
+      @cv_chat.with_instructions(instructions)
+      @response = @cv_chat.ask(@message.content, with: with)
+
+      # assitant reply message
+      @chat.messages.create!(
+        role: "assistant",
+        content: @response.content
+      )
   end
 end
+
+#--------------------------------------------
