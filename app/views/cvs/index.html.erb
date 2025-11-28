@@ -4,7 +4,7 @@
 
     <div class="row justify-content-center cv-container">
       <% current_user.cvs.each do |cv| %>
-        <div class="cvcard m-2">
+        <div class="cvcard m-2 col-md-3">
           <%= link_to cv_path(cv) do %>
             <p><%= cv.title %></p>
           <% end %>
