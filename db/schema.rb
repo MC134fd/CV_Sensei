@@ -22,6 +22,7 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_150308) do
     t.datetime "updated_at", null: false
     t.string "title"
     t.bigint "user_id"
+    t.bigint "input_count"
     t.index ["cv_id"], name: "index_chats_on_cv_id"
     t.index ["user_id"], name: "index_chats_on_user_id"
   end
@@ -41,7 +42,6 @@ ActiveRecord::Schema[7.1].define(version: 2025_11_27_150308) do
     t.string "role"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "input_count"
     t.index ["chat_id"], name: "index_messages_on_chat_id"
   end
 

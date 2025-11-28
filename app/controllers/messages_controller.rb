@@ -18,7 +18,7 @@ class MessagesController < ApplicationController
       @cv_chat = RubyLLM.chat
       build_conversation_history
       response = @cv_chat.with_instructions(instructions).ask(@message.content)
-      @message.update(input_count: response.input_tokens)
+      @chat.update(input_count: response.input_tokens)
       # assistant reply message
       @chat.messages.create!(
         role: "assistant",
