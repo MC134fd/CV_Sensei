@@ -19,7 +19,7 @@
               <p>Title: <%= @cv.title %></p>
               <%= simple_form_for(@cv, html: { class: "cv-form", turbo_method: :patch }) do |f| %>
                 <%= f.input :content, required: true %>
-                <%= f.submit "Update CV", class: "btn btn primary" %>
+                <%= f.submit "Update CV", class: "btn btn-primary" %>
               <% end %>
             </div>
             <div class="col-6 mt-5">
