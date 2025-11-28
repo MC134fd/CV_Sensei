@@ -1,5 +1,7 @@
 class Message < ApplicationRecord
   belongs_to :chat
+  has_one_attached :file
+  validates :content, presence: true
 
   validates :content, length: { minimum: 10, maximum: 1000 }, if: -> { role == "user" }
 
