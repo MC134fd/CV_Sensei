@@ -1,0 +1,35 @@
+.cvcard {
+  margin-top: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background: $orange-400;
+  padding: 18px;
+  border: 1.5px solid $orange-700;
+  text-align: center;
+  border-radius: 7px;
+  box-shadow: 2px 2px 1px;
+  height: 150px;
+  max-width: 150px;
+
+  p {
+    text-overflow: ellipsis;
+    font-size: 16px;
+  }
+}
+
+.cvcard a {
+  color: $background-dark;
+  font-size: 18px;
+
+  &:hover {
+    color: white;
+  }
+}
+
+.cvcardbin {
+  width: 100%;
+  display: flex;
+  justify-content: end;
+}

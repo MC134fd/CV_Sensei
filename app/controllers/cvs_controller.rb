@@ -16,6 +16,11 @@ class CvsController < ApplicationController
     end
   end
 
+  def update
+    @cv = Cv.find(params[:id])
+    @cv.update(cv_params)
+  end
+
   def show
     @cv = Cv.find(params[:id])
     @chat = Chat.new

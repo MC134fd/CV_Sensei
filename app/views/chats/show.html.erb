@@ -3,38 +3,8 @@
   <div class="row" data-controller="toggle">
     <%# The columns of the page %>
 
-    <div class="col-md-1 vh-100 sticky-top pt-3" data-toggle-target="sidebarCol">
-
-      <%# The open sidebar button %>
-      <div id="chats-side-bar-open">
-        <i class="fa-solid fa-list-ul btn btn-primary btn-lg" data-action="click->toggle#openSidebar" data-toggle-target="openSidebarButton"></i>
-      </div>
-
-      <%# The sidebar %>
-      <div class="off-canvas off-canvas-start d-none" id="chats-side-bar" data-toggle-target="sidebar">
-
-        <%# The close sidebar button %>
-        <div class="off-canvas-header d-flex justify-content-between mb-3">
-          <h5 class="off-canvas-title">Your chats</h5>
-          <button class="btn-close" data-action="click->toggle#closeSidebar"></button>
-        </div>
-
-        <%# The sidebar body %>
-        <div class="off-canvas-body">
-          <ul class="list-group list-group-flush mb-3">
-            <% @chats.each do |chat| %>
-              <li class="list-group-item">
-                <%= link_to chat.title, chat_path(chat) %>
-              <% end %>
-            </li>
-          </ul>
-          <div class="off-canvas-header">
-            <%= link_to "Create a New Chat", cv_path(@cv), class: "btn btn-primary" %>
-          </div>
-        </div>
-
-      </div>
-    </div>
+    <%# render the sidebar column %>
+    <%= render "shared/sidebar", chats: @chats, cv: @cv %>
 
     <div class="col-md-11 pt-3" data-toggle-target="contentCol">
       <%# The page content goes here %>
@@ -42,10 +12,15 @@
       <h1 class="text-center">Let's get tailoring!</h1>
 
       <div class="row">
-        <div class="col-6">
+        <div class="col-5">
           <h2 class="mb-4">What we have so far:</h2>
           <p>Title: <%= @cv.title %></p>
-          <p>Content: <%= @cv.content %></p>
+
+            <%= simple_form_for(@cv, html: { class: "cv-form", turbo_method: :patch }) do |f| %>
+              <%= f.input :content, required: true %>
+              <%= f.submit "Update CV", class: "btn btn primary" %>
+            <% end %>
+
         </div>
         <div class="col-6">
           <h1><%= @chat.title %></h1>

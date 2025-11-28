@@ -27,9 +27,9 @@ class MessagesController < ApplicationController
       redirect_to chat_path(@chat)
     else
       # re-render the chat page with errors
+      @cv = @chat.cv
       @messages = @chat.messages.order(:created_at)
       @chats = @chat.cv.chats
-      @cv = @chat.cv
       render "chats/show", status: :unprocessable_entity
     end
   end
