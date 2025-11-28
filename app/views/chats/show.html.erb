@@ -30,7 +30,7 @@
             <% @messages.each do |m| %>
               <% if m.role == "user" %>
                 <div class="d-flex justify-content-end mb-2">
-                  <div class="px-3 pb-0 pt-3 rounded-pill text-dark bg-white">
+                  <div class="p-3 bg bg-light text-dark rounded-5 bg-white">
                     <%= raw(render_markdown(m.content)) %>
                   </div>
                 </div>
