@@ -26,19 +26,22 @@
 
           <h3>Chat with Sensei</h3>
           <div class="container overflow-y-auto" style="height: 300px;">
-            <div class="list-group">
-              <% @messages.each do |m| %>
-                <% if m.role == "user" %>
-                  <div class="list-group-item px-5 text-start">
+
+            <% @messages.each do |m| %>
+              <% if m.role == "user" %>
+                <div class="d-flex justify-content-end mb-2">
+                  <div class="px-3 pb-0 pt-3 rounded-pill text-dark bg-white">
                     <%= raw(render_markdown(m.content)) %>
                   </div>
-                <% else %>
-                  <div class="row justify-content-center">
+                </div>
+              <% else %>
+                <div class="d-flex justify-content-start mb-5">
+                  <div class="px-3 pb-0 pt-3">
                     <%= raw(render_markdown(m.content)) %>
                   </div>
-                <% end %>
+                </div>
               <% end %>
-            </div>
+            <% end %>
 
           </div>
           <h3>Create a new message</h3>
