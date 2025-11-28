@@ -24,9 +24,9 @@ puts "Creating CVs..."
 cv = Cv.new(title: "Back-end Software Developer", content: "Experienced software engineer with a focus on high-performance backend systems")
 cv1 = Cv.new(title: "Marketing Role CV", content: "Marketing specialist with expertise in brand strategy and campaign execution")
 cv2 = Cv.new(title: "Product Manager Role", content: "Product manager skilled in roadmap planning and stakeholder collaboration")
-cv3 = Cv.new(title: "UX Designer", content: "UX designer passionate about accessible and intuitive digital experiences")
-cv4 = Cv.new(title: "Full Stack CV", content: "Full-stack developer proficient in Rails, React, and cloud services")
-cv5 = Cv.new(title: "Data Analyst Role CV", content: "Data analyst with strong SQL and dashboard-building experience")
+cv3 = Cv.new(title: "Senior UX Designer", content: "UX designer passionate about accessible and intuitive digital experiences")
+cv4 = Cv.new(title: "Full Stack Dev", content: "Full-stack developer proficient in Rails, React, and cloud services")
+cv5 = Cv.new(title: "Data Analyst Role", content: "Data analyst with strong SQL and dashboard-building experience")
 
 cv.user = user
 cv.save!
