@@ -5,7 +5,7 @@ class Message < ApplicationRecord
 
   validates :content, length: { minimum: 10, maximum: 1000 }, if: -> { role == "user" }
 
-  validate :user_message_limit, if: -> { role == "user" }
+  # validate :user_message_limit, if: -> { role == "user" }
 
   MAX_USER_CHAT_TOK_COUNT = 100000
   # we cannot use the word token, otherwise ruby filters that variable by default, and it will show as nil
