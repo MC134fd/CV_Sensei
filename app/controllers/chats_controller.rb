@@ -19,18 +19,17 @@ class ChatsController < ApplicationController
     @chat = Chat.new(chat_params)
     @chat.cv = @cv
     @chat.user = current_user
-
     if @chat.save
       @chat.generate_title
       # creating the new message, out of the chat form
-      @first_message = @chat.messages.new(content: first_message_content)
+      @first_message = Message.new(content: first_message_content)
       @first_message.chat = @chat
       @first_message.role = "user"
       if @first_message.save
         # call LLM with system prompt engineering n context
         cv_chat = RubyLLM.chat
         response = cv_chat.with_instructions(CV_PROMPT).ask(@first_message.content)
-
+        @chat.input_count = response.input_tokens
         # assistant reply message
         @chat.messages.create!(
           role: "assistant",
@@ -56,7 +55,8 @@ class ChatsController < ApplicationController
   def destroy
     @chat = Chat.find(params[:id])
     @chat.destroy
-    redirect_to chats_path, status: :see_other
+    # redirect_to chats_path, status: :see_other
+    redirect_back fallback_location: cv_path(@chat.cv), status: :see_other
   end
 
   private

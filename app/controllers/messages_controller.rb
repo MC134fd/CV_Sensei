@@ -12,10 +12,8 @@ class MessagesController < ApplicationController
 
     @message = @chat.messages.new(message_params)
     @message.chat = @chat
-
     # so that the user knows the message is made by a user
     @message.role = "user"
-
     if @message.save
       # this logic is for if the file is a pdf or actual text c ntent and directs the the right method
       if @message.file.attached?
@@ -39,16 +37,13 @@ class MessagesController < ApplicationController
 
   # builds context from the chat + cv (matches your cv_id / job_title / job_description columns)
   def instructions
-    # cv = @chat.cv ---------------------- AS A LATER FEATURE?
-
     [
       CV_PROMPT,
       "Job title: #{@chat.job_title}",
-      "Job description: #{@chat.job_description}"
-      # "Current CV:\n#{cv.content}" ---------------------- AS A LATER FEATURE?
+      "Job description: #{@chat.job_description}",
+      "My current CV:\n#{@chat.cv.content}"
     ].join("\n\n")
   end
-
 
   def build_conversation_history
     @chat.messages.each do |message|
